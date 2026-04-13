@@ -2,7 +2,7 @@ module github.com/minio/mc
 
 go 1.24.0
 
-toolchain go1.24.9
+toolchain go1.26.0
 
 // Install tools using 'go install tool'.
 tool (

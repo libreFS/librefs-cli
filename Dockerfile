@@ -1,22 +1,20 @@
-FROM golang:1.22-alpine as build
+FROM golang:1.26-bookworm AS builder
 
-LABEL maintainer="MinIO Inc <dev@min.io>"
+LABEL maintainer="libreFS contributors"
 
-ENV GOPATH /go
-ENV CGO_ENABLED 0
+ENV CGO_ENABLED=0
 
+WORKDIR /app
+COPY go.mod go.sum ./
+RUN go mod download
 
-RUN apk add -U --no-cache ca-certificates
-RUN apk add -U curl
-RUN curl -s -q https://raw.githubusercontent.com/minio/mc/master/LICENSE -o /go/LICENSE
-RUN curl -s -q https://raw.githubusercontent.com/minio/mc/master/CREDITS -o /go/CREDITS
-RUN go install -v -ldflags "$(go run buildscripts/gen-ldflags.go)" "github.com/minio/mc@latest"
+COPY . .
+RUN go build -trimpath --ldflags "-s -w" -o /lc .
 
-FROM scratch
+FROM gcr.io/distroless/static-debian12:nonroot
 
-COPY --from=build /go/bin/mc  /usr/bin/mc
-COPY --from=build /go/CREDITS /licenses/CREDITS
-COPY --from=build /go/LICENSE /licenses/LICENSE
-COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=builder /lc /usr/bin/lc
+COPY --from=builder /app/LICENSE /licenses/LICENSE
+COPY --from=builder /app/CREDITS /licenses/CREDITS
 
-ENTRYPOINT ["mc"]
+ENTRYPOINT ["/usr/bin/lc"]
