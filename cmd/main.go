@@ -1,6 +1,6 @@
-// Copyright (c) 2015-2022 MinIO, Inc.
+// Copyright (c) 2015-2022 libreFS, Inc.
 //
-// This file is part of MinIO Object Storage stack
+// This file is part of libreFS Object Storage stack
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -72,7 +72,7 @@ TIP:
   Use '{{.Name}} --autocompletion' to enable shell autocompletion
 
 COPYRIGHT:
-  Copyright (c) 2015-` + CopyrightYear + ` MinIO, Inc.
+  Copyright (c) 2015-` + CopyrightYear + ` libreFS, Inc. — modifications (c) 2026 libreFS contributors (AGPL-3.0)
 
 LICENSE:
   GNU AGPLv3 <https://www.gnu.org/licenses/agpl-3.0.html>
@@ -98,7 +98,7 @@ func init() {
 func Main(args []string) error {
 	if len(args) > 1 {
 		switch args[1] {
-		case "mc", filepath.Base(args[0]):
+		case "mc", "lc", filepath.Base(args[0]):
 			mainComplete()
 			return nil
 		}
@@ -342,7 +342,7 @@ func installAutoCompletion() {
 		}
 	}
 	if printMsg != "" {
-		if completeinstall.IsInstalled(filepath.Base(os.Args[0])) || completeinstall.IsInstalled("mc") {
+		if completeinstall.IsInstalled(filepath.Base(os.Args[0])) || completeinstall.IsInstalled("mc") || completeinstall.IsInstalled("lc") {
 			console.Infoln("autocompletion is enabled.", printMsg)
 		} else {
 			fatalIf(probe.NewError(e), "Unable to install auto-completion.")
@@ -463,7 +463,7 @@ var appCmds = []cli.Command{
 func printMCVersion(c *cli.Context) {
 	fmt.Fprintf(c.App.Writer, "%s version %s (commit-id=%s)\n", c.App.Name, c.App.Version, CommitID)
 	fmt.Fprintf(c.App.Writer, "Runtime: %s %s/%s\n", runtime.Version(), runtime.GOOS, runtime.GOARCH)
-	fmt.Fprintf(c.App.Writer, "Copyright (c) 2015-%s MinIO, Inc.\n", CopyrightYear)
+	fmt.Fprintf(c.App.Writer, "Copyright (c) 2015-%s libreFS, Inc. — modifications (c) 2026 libreFS contributors\n", CopyrightYear)
 	fmt.Fprintf(c.App.Writer, "License GNU AGPLv3 <https://www.gnu.org/licenses/agpl-3.0.html>\n")
 }
 
@@ -503,9 +503,9 @@ func registerApp(name string) *cli.App {
 
 	app.Before = registerBefore
 	app.HideHelpCommand = true
-	app.Usage = "MinIO Client for object storage and filesystems."
+	app.Usage = "libreFS Client for object storage and filesystems."
 	app.Commands = appCmds
-	app.Author = "MinIO, Inc."
+	app.Author = "libreFS contributors"
 	app.Version = ReleaseTag
 	app.Flags = append(mcFlags, globalFlags...)
 	app.CustomAppHelpTemplate = mcHelpTemplate
