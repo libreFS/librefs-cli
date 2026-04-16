@@ -42,6 +42,7 @@ const (
 	differInFirst                    // only in source (FIRST)
 	differInSecond                   // only in target (SECOND)
 	differInAASourceMTime            // differs in active-active source modtime
+	differInETag                     // same size but ETag/MD5 differs
 )
 
 func (d differType) String() string {
@@ -54,6 +55,8 @@ func (d differType) String() string {
 		return "metadata"
 	case differInAASourceMTime:
 		return "mm-source-mtime"
+	case differInETag:
+		return "etag"
 	case differInType:
 		return "type"
 	case differInFirst:
@@ -338,6 +341,19 @@ func differenceInternal(sourceURL string,
 					FirstURL:      srcCtnt.URL.String(),
 					SecondURL:     tgtCtnt.URL.String(),
 					Diff:          differInSize,
+					firstContent:  srcCtnt,
+					secondContent: tgtCtnt,
+				}
+			} else if opts.md5 && srcCtnt.ETag != "" && tgtCtnt.ETag != "" && srcCtnt.ETag != tgtCtnt.ETag {
+				// Same size but ETag/MD5 differs — content changed.
+				// Only checked when --md5 is set; catches files whose content
+				// was replaced without a size change (e.g. restored from backup),
+				// including cases where the target timestamp is newer than the
+				// source so the modtime check would otherwise skip the file.
+				diffCh <- diffMessage{
+					FirstURL:      srcCtnt.URL.String(),
+					SecondURL:     tgtCtnt.URL.String(),
+					Diff:          differInETag,
 					firstContent:  srcCtnt,
 					secondContent: tgtCtnt,
 				}

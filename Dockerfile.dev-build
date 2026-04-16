@@ -1,0 +1,18 @@
+FROM golang:1.26-alpine
+
+RUN apk add --no-cache \
+    bash \
+    curl \
+    git \
+    make \
+    gcc \
+    musl-dev \
+    binutils \
+    binutils-gold \
+    grep \
+    gawk \
+    findutils \
+    coreutils \
+    perl
+
+WORKDIR /app

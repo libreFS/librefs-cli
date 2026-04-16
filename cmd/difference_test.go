@@ -18,7 +18,9 @@
 package cmd
 
 import (
+	"os"
 	"testing"
+	"time"
 )
 
 var testCases = []struct {
@@ -60,4 +62,80 @@ func TestExcludeOptions(t *testing.T) {
 			t.Fatalf("Unexpected result %t, with pattern %s and srcSuffix %s \n", !test.match, test.pattern, test.srcSuffix)
 		}
 	}
+}
+
+// makeDiffCh feeds two slices of ClientContent into difference() and collects results.
+func makeDiffCh(srcItems, tgtItems []*ClientContent, opts mirrorOptions) []diffMessage {
+	srcCh := make(chan *ClientContent, len(srcItems))
+	tgtCh := make(chan *ClientContent, len(tgtItems))
+	for _, c := range srcItems {
+		srcCh <- c
+	}
+	for _, c := range tgtItems {
+		tgtCh <- c
+	}
+	close(srcCh)
+	close(tgtCh)
+
+	var msgs []diffMessage
+	for msg := range difference("s3://src/", srcCh, "s3://tgt/", tgtCh, opts, false) {
+		msgs = append(msgs, msg)
+	}
+	return msgs
+}
+
+func fileContent(url string, size int64, etag string, modtime time.Time) *ClientContent {
+	return &ClientContent{
+		URL:  *newClientURL(url),
+		Size: size,
+		Type: os.FileMode(0o644), // regular file
+		ETag: etag,
+		Time: modtime,
+	}
+}
+
+// TestDifferenceETag verifies that when --md5 is set, two files with the same
+// path and size but different ETags are reported as differInETag, not differInNone.
+// This is the core bug: without the fix the file would be silently skipped.
+func TestDifferenceETag(t *testing.T) {
+	now := time.Now()
+	// Target is newer (simulates upload timestamp being after source modtime —
+	// the exact scenario where activeActiveModTimeUpdated returns false).
+	tgtTime := now.Add(10 * time.Minute)
+
+	src := []*ClientContent{fileContent("s3://src/data/file.bin", 1024, "abc123", now)}
+	tgt := []*ClientContent{fileContent("s3://tgt/data/file.bin", 1024, "def456", tgtTime)}
+
+	t.Run("md5_flag_detects_etag_diff", func(t *testing.T) {
+		msgs := makeDiffCh(src, tgt, mirrorOptions{md5: true})
+		if len(msgs) != 1 {
+			t.Fatalf("expected 1 diff message, got %d", len(msgs))
+		}
+		if msgs[0].Diff != differInETag {
+			t.Errorf("expected differInETag, got %v", msgs[0].Diff)
+		}
+	})
+
+	t.Run("no_md5_flag_ignores_etag_diff", func(t *testing.T) {
+		// Without --md5, same-size files with newer target timestamp should
+		// not be copied (existing behavior preserved).
+		msgs := makeDiffCh(src, tgt, mirrorOptions{md5: false})
+		for _, m := range msgs {
+			if m.Diff == differInETag {
+				t.Error("differInETag should not be emitted when --md5 is not set")
+			}
+		}
+	})
+
+	t.Run("same_etag_not_copied", func(t *testing.T) {
+		// Same ETag — should not trigger a copy even with --md5.
+		src2 := []*ClientContent{fileContent("s3://src/data/file.bin", 1024, "abc123", now)}
+		tgt2 := []*ClientContent{fileContent("s3://tgt/data/file.bin", 1024, "abc123", tgtTime)}
+		msgs := makeDiffCh(src2, tgt2, mirrorOptions{md5: true})
+		for _, m := range msgs {
+			if m.Diff == differInETag || m.Diff == differInSize {
+				t.Errorf("identical ETags should not trigger a copy, got diff=%v", m.Diff)
+			}
+		}
+	})
 }

@@ -157,7 +157,7 @@ func fixConfigV6ForHosts() {
 		// If host entry does not contain "http(s)", introduce a new entry and delete the old one.
 		if host == "s3.amazonaws.com" || host == "storage.googleapis.com" ||
 			host == "localhost:9000" || host == "127.0.0.1:9000" ||
-			host == "play.librefs.org:9000" || host == "play.librefs.org:9000" {
+			host == "play.librefs.org:9000" {
 			console.Infoln("Found broken host entries, replacing " + host + " with https://" + host + ".")
 			url.Host = host
 			url.Scheme = "https"

@@ -96,6 +96,8 @@ func (d diffMessage) String() string {
 		msg = console.Colorize("DiffMetadata", "! "+d.SecondURL)
 	case differInAASourceMTime:
 		msg = console.Colorize("DiffMMSourceMTime", "! "+d.SecondURL)
+	case differInETag:
+		msg = console.Colorize("DiffSize", "! "+d.SecondURL)
 	case differInNone:
 		msg = console.Colorize("DiffInNone", "= "+d.FirstURL)
 	default:
