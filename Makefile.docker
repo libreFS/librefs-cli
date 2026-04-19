@@ -17,7 +17,7 @@ DOCKER_RUN := docker run --rm \
 	-w /app \
 	$(DEV_IMAGE)
 
-.PHONY: all image build test verifiers lint clean help
+.PHONY: all image build test test-integration verifiers lint clean help
 
 all: build
 
@@ -29,6 +29,9 @@ build: ## compile the lc binary (inside Docker)
 
 test: ## run all unit tests (inside Docker)
 	$(DOCKER_RUN) make test
+
+test-integration: ## spin up a libreFS server and run Test_FullSuite against it
+	@bash scripts/integration-test.sh
 
 verifiers: ## run linters and checks (inside Docker)
 	$(DOCKER_RUN) make verifiers
