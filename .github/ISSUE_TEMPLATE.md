@@ -2,11 +2,11 @@
 
 ## Actual behavior
 
-## Steps to reproduce the behavior
+## Steps to reproduce
 
-## mc --version
-- (paste output of `mc --version`)
+## lc version
+<!-- Run: lc --version -->
 
 ## System information
-
-
+- OS:
+- Architecture:
