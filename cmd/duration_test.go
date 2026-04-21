@@ -24,11 +24,11 @@ import (
 
 // NOTE: Days() has a known bug — the integer part it returns is hours, not
 // days (float64(hour) where hour = d/Hour).  The tests below document the
-// actual current behaviour so regressions are visible; the function should
+// actual current behavior so regressions are visible; the function should
 // eventually be fixed to return float64(hour)/24 + fractional.
 func TestDurationDays(t *testing.T) {
 	cases := []struct {
-		d    Duration
+		d Duration
 		// want is the value Days() currently returns (hours, not days)
 		want float64
 	}{

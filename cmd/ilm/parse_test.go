@@ -198,10 +198,10 @@ func TestValidateTranExpDate(t *testing.T) {
 	}); err != nil {
 		t.Errorf("unexpected error: %v", err)
 	}
-	// expiry before transition — error
+	// expiry before transition — error (tranDate is before expDate)
 	if err := validateTranExpDate(lifecycle.Rule{
-		Expiration: lifecycle.Expiration{Date: tranDate},                          // earlier
-		Transition: lifecycle.Transition{Date: expDate, StorageClass: "GLACIER"}, // later
+		Expiration: lifecycle.Expiration{Date: tranDate},
+		Transition: lifecycle.Transition{Date: expDate, StorageClass: "GLACIER"},
 	}); err == nil {
 		t.Error("expected error when expiry is before transition")
 	}
@@ -251,7 +251,7 @@ func TestParseTransitionDate(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
-	if d.Time.IsZero() {
+	if d.IsZero() {
 		t.Error("parsed date should not be zero")
 	}
 	if _, err := parseTransitionDate("not-a-date"); err == nil {
@@ -280,7 +280,7 @@ func TestParseExpiryDate(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
-	if d.Time.IsZero() {
+	if d.IsZero() {
 		t.Error("parsed date should not be zero")
 	}
 	if _, err := parseExpiryDate("bad-date"); err == nil {

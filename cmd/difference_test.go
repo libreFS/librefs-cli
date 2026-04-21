@@ -229,9 +229,9 @@ func TestMetadataEqual(t *testing.T) {
 			equal: true,
 		},
 		{
-			name: "lowercase active-active key ignored",
-			m1:   map[string]string{"x-amz-meta-mm-source-mtime": ts},
-			m2:   map[string]string{},
+			name:  "lowercase active-active key ignored",
+			m1:    map[string]string{"x-amz-meta-mm-source-mtime": ts},
+			m2:    map[string]string{},
 			equal: true,
 		},
 		{
