@@ -59,7 +59,7 @@ FLAGS:
    {{range .VisibleFlags}}{{.}}
    {{end}}
 EXAMPLES:
-  1. Re-replicate previously replicated objects in bucket "mybucket" for alias "myminio" for remote target.
+  1. Re-replicate previously replicated objects in bucket "mybucket" for alias "myserver" for remote target.
    {{.Prompt}} {{.HelpName}} myminio/mybucket --remote-bucket "arn:minio:replication::xxx:mybucket"
 
   2. Re-replicate all objects older than 60 days in bucket "mybucket" for remote bucket target.

@@ -43,7 +43,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Enable a service account 'J123C4ZXEQN8RK6ND35I' on libreFS server.
-     {{.Prompt}} {{.HelpName}} myminio/ J123C4ZXEQN8RK6ND35I
+     {{.Prompt}} {{.HelpName}} myserver/ J123C4ZXEQN8RK6ND35I
 `,
 }
 
@@ -54,7 +54,7 @@ func checkAdminUserSvcAcctEnableSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminUserSvcAcctEnable is the handle for "mc admin user svcacct enable" command.
+// mainAdminUserSvcAcctEnable is the handle for "lc admin user svcacct enable" command.
 func mainAdminUserSvcAcctEnable(ctx *cli.Context) error {
 	checkAdminUserSvcAcctEnableSyntax(ctx)
 

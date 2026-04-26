@@ -41,11 +41,11 @@ var adminTopLocksCmd = cli.Command{
 	Action:       mainAdminTopLocks,
 	OnUsageError: onUsageError,
 	Flags:        append(globalFlags, topLocksFlag...),
-	CustomHelpTemplate: `Please use 'mc support top locks'
+	CustomHelpTemplate: `Please use 'lc support top locks'
 `,
 }
 
 func mainAdminTopLocks(_ *cli.Context) error {
-	deprecatedError("mc support top locks")
+	deprecatedError("lc support top locks")
 	return nil
 }

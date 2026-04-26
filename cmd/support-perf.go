@@ -103,11 +103,11 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Upload object storage, network, and drive performance analysis for cluster with alias 'myminio' to SUBNET
-     {{.Prompt}} {{.HelpName}} myminio
+  1. Upload object storage, network, and drive performance analysis for cluster with alias 'myserver' to SUBNET
+     {{.Prompt}} {{.HelpName}} myserver
 
-  2. Run object storage, network, and drive performance tests on cluster with alias 'myminio', save and upload to SUBNET manually
-     {{.Prompt}} {{.HelpName}} myminio --airgap
+  2. Run object storage, network, and drive performance tests on cluster with alias 'myserver', save and upload to SUBNET manually
+     {{.Prompt}} {{.HelpName}} myserver --airgap
 `,
 }
 
@@ -564,7 +564,7 @@ func writeJSONObjToZip(zipWriter *zip.Writer, obj any, filename string) error {
 // compress libreFS performance output
 func zipPerfResult(perfOutput PerfTestOutput, resultFilename string, regInfo ClusterRegistrationInfo) (string, error) {
 	// Create perf results zip file
-	tmpArchive, e := os.CreateTemp("", "mc-perf-*.zip")
+	tmpArchive, e := os.CreateTemp("", "lc-perf-*.zip")
 
 	if e != nil {
 		return "", e

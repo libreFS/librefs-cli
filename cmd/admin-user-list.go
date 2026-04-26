@@ -45,7 +45,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. List all users on libreFS server.
-     {{.Prompt}} {{.HelpName}} myminio
+     {{.Prompt}} {{.HelpName}} myserver
 `,
 }
 
@@ -56,7 +56,7 @@ func checkAdminUserListSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminUserList is the handle for "mc admin user list" command.
+// mainAdminUserList is the handle for "lc admin user list" command.
 func mainAdminUserList(ctx *cli.Context) error {
 	checkAdminUserListSyntax(ctx)
 

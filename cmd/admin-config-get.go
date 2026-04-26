@@ -56,11 +56,11 @@ EXAMPLES:
      region name=us-east-1
 
   2. Get the current notification settings for Webhook target on libreFS server
-     {{.Prompt}} {{.HelpName}} myminio/ notify_webhook
+     {{.Prompt}} {{.HelpName}} myserver/ notify_webhook
      notify_webhook endpoint="http://localhost:8080" auth_token= queue_limit=10000 queue_dir="/home/events"
 
   3. Get the current compression settings on libreFS server
-     {{.Prompt}} {{.HelpName}} myminio/ compression
+     {{.Prompt}} {{.HelpName}} myserver/ compression
      compression extensions=".txt,.csv" mime_types="text/*"
 `,
 }

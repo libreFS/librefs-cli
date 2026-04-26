@@ -81,13 +81,13 @@ EXAMPLES:
      {{.Prompt}} {{.HelpName}} /mnt/sdb/mydisk /mnt/sdc/mydisk /mnt/sdd/mydisk
 
   6. Ignore if bucket/directory already exists.
-     {{.Prompt}} {{.HelpName}} --ignore-existing myminio/mynewbucket
+     {{.Prompt}} {{.HelpName}} --ignore-existing myserver/mynewbucket
 
   7. Create a new bucket on Amazon S3 cloud storage in region 'us-west-2' with object lock enabled.
      {{.Prompt}} {{.HelpName}} --with-lock --region=us-west-2 s3/myregionbucket
 
   8. Create a new bucket on libreFS with versioning enabled.
-     {{.Prompt}} {{.HelpName}} --with-versioning myminio/myversionedbucket
+     {{.Prompt}} {{.HelpName}} --with-versioning myserver/myversionedbucket
 `,
 }
 
@@ -148,7 +148,7 @@ func mainMakeBucket(cliCtx *cli.Context) error {
 		if err = clnt.MakeBucket(ctx, region, ignoreExisting, withLock); err != nil {
 			switch err.ToGoError().(type) {
 			case BucketNameEmpty:
-				errorIf(err.Trace(targetURL), "Unable to make bucket, please use `mc mb %s`.", urlJoinPath(targetURL, "your-bucket-name"))
+				errorIf(err.Trace(targetURL), "Unable to make bucket, please use `lc mb %s`.", urlJoinPath(targetURL, "your-bucket-name"))
 			default:
 				errorIf(err.Trace(targetURL), "Unable to make bucket `%s`.", targetURL)
 			}

@@ -180,7 +180,7 @@ func toJSON(obj any) string {
 	return string(jsonBytes)
 }
 
-// mainSupport is the handle for "mc support" command.
+// mainSupport is the handle for "lc support" command.
 func mainSupport(ctx *cli.Context) error {
 	commandNotFound(ctx, supportSubcommands)
 	return nil

@@ -47,7 +47,7 @@ import (
 	completeinstall "github.com/posener/complete/cmd/install"
 )
 
-// global flags for mc.
+// global flags for lc.
 var mcFlags = []cli.Flag{
 	cli.BoolFlag{
 		Name:  "autocompletion",
@@ -55,7 +55,7 @@ var mcFlags = []cli.Flag{
 	},
 }
 
-// Help template for mc
+// Help template for lc
 var mcHelpTemplate = `NAME:
   {{.Name}} - {{.Usage}}
 
@@ -94,11 +94,11 @@ func init() {
 	}
 }
 
-// Main starts mc application
+// Main starts lc application
 func Main(args []string) error {
 	if len(args) > 1 {
 		switch args[1] {
-		case "mc", "lc", filepath.Base(args[0]):
+		case "lc", filepath.Base(args[0]):
 			mainComplete()
 			return nil
 		}
@@ -124,7 +124,7 @@ func Main(args []string) error {
 		globalTermWidth, globalTermHeight = w, h
 	}
 
-	// Set the mc app name.
+	// Set the lc app name.
 	appName := filepath.Base(args[0])
 	if runtime.GOOS == "windows" && strings.HasSuffix(strings.ToLower(appName), ".exe") {
 		// Trim ".exe" from Windows executable.
@@ -261,19 +261,19 @@ func migrate() {
 	migrateShare()
 }
 
-// initMC - initialize 'mc'.
+// initMC - initialize 'lc'.
 func initMC() {
-	// Check if mc config exists.
+	// Check if lc config exists.
 	if !isMcConfigExists() {
 		err := saveMcConfig(newMcConfig())
-		fatalIf(err.Trace(), "Unable to save new mc config.")
+		fatalIf(err.Trace(), "Unable to save new lc config.")
 
 		if !globalQuiet && !globalJSON {
 			console.Infoln("Configuration written to `" + mustGetMcConfigPath() + "`. Please update your access credentials.")
 		}
 	}
 
-	// Check if mc share directory exists.
+	// Check if lc share directory exists.
 	if !isShareDirExists() {
 		initShareConfig()
 	}
@@ -342,7 +342,7 @@ func installAutoCompletion() {
 		}
 	}
 	if printMsg != "" {
-		if completeinstall.IsInstalled(filepath.Base(os.Args[0])) || completeinstall.IsInstalled("mc") || completeinstall.IsInstalled("lc") {
+		if completeinstall.IsInstalled(filepath.Base(os.Args[0])) || completeinstall.IsInstalled("lc") || completeinstall.IsInstalled("lc") {
 			console.Infoln("autocompletion is enabled.", printMsg)
 		} else {
 			fatalIf(probe.NewError(e), "Unable to install auto-completion.")
@@ -408,7 +408,7 @@ func checkUpdate(ctx *cli.Context) {
 		} else {
 			printMsg(updateMessage{
 				Status:  "success",
-				Message: prepareUpdateMessage("Run `mc update`", latestReleaseTime.Sub(currentReleaseTime)),
+				Message: prepareUpdateMessage("Run `lc update`", latestReleaseTime.Sub(currentReleaseTime)),
 			})
 		}
 	}

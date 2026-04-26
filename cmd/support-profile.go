@@ -97,17 +97,17 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Profile CPU for 10 seconds on cluster with alias 'myminio' and upload results to SUBNET
-     {{.Prompt}} {{.HelpName}} --type cpu myminio
+  1. Profile CPU for 10 seconds on cluster with alias 'myserver' and upload results to SUBNET
+     {{.Prompt}} {{.HelpName}} --type cpu myserver
 
-  2. Profile CPU, Memory, Goroutines for 10 seconds on cluster with alias 'myminio' and upload results to SUBNET
-     {{.Prompt}} {{.HelpName}} --type cpu,mem,goroutines myminio
+  2. Profile CPU, Memory, Goroutines for 10 seconds on cluster with alias 'myserver' and upload results to SUBNET
+     {{.Prompt}} {{.HelpName}} --type cpu,mem,goroutines myserver
 
-  3. Profile CPU, Memory, Goroutines for 10 minutes on cluster with alias 'myminio' and upload results to SUBNET
-     {{.Prompt}} {{.HelpName}} --type cpu,mem,goroutines --duration 600 myminio
+  3. Profile CPU, Memory, Goroutines for 10 minutes on cluster with alias 'myserver' and upload results to SUBNET
+     {{.Prompt}} {{.HelpName}} --type cpu,mem,goroutines --duration 600 myserver
 
-  4. Profile CPU for 10 seconds on cluster with alias 'myminio', save and upload to SUBNET manually
-     {{.Prompt}} {{.HelpName}} --type cpu --airgap myminio
+  4. Profile CPU for 10 seconds on cluster with alias 'myserver', save and upload to SUBNET manually
+     {{.Prompt}} {{.HelpName}} --type cpu --airgap myserver
 `,
 }
 
@@ -170,7 +170,7 @@ func moveFile(sourcePath, destPath string) error {
 
 func saveProfileFile(data io.ReadCloser) {
 	// Create profile zip file
-	tmpFile, e := os.CreateTemp("", "mc-profile-")
+	tmpFile, e := os.CreateTemp("", "lc-profile-")
 	fatalIf(probe.NewError(e), "Unable to download profile data.")
 
 	// Copy zip content to target download file
@@ -195,7 +195,7 @@ func saveProfileFile(data io.ReadCloser) {
 	fatalIf(probe.NewError(moveFile(tmpFile.Name(), profileFile)), "Unable to save profile data")
 }
 
-// mainSupportProfile is the handle for "mc support profile" command.
+// mainSupportProfile is the handle for "lc support profile" command.
 func mainSupportProfile(ctx *cli.Context) error {
 	// Check for command syntax
 	checkAdminProfileSyntax(ctx)

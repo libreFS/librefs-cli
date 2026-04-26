@@ -47,14 +47,14 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Enable callhome for cluster with alias 'myminio'
-     {{.Prompt}} {{.HelpName}} enable myminio
+  1. Enable callhome for cluster with alias 'myserver'
+     {{.Prompt}} {{.HelpName}} enable myserver
 
-  2. Disable callhome for cluster with alias 'myminio'
-     {{.Prompt}} {{.HelpName}} disable myminio
+  2. Disable callhome for cluster with alias 'myserver'
+     {{.Prompt}} {{.HelpName}} disable myserver
 
-  3. Check callhome status for cluster with alias 'myminio'
-     {{.Prompt}} {{.HelpName}} status myminio
+  3. Check callhome status for cluster with alias 'myserver'
+     {{.Prompt}} {{.HelpName}} status myserver
 `,
 }
 

@@ -64,10 +64,10 @@ FLAGS:
   {{end}}
 EXAMPLES:
    1. Display current in-progress all S3 API calls.
-      {{.Prompt}} {{.HelpName}} myminio/
+      {{.Prompt}} {{.HelpName}} myserver/
 
    2. Display current in-progress all 's3.PutObject' API calls.
-      {{.Prompt}} {{.HelpName}} --name s3.PutObject myminio/
+      {{.Prompt}} {{.HelpName}} --name s3.PutObject myserver/
 `,
 }
 

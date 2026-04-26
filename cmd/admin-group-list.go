@@ -43,7 +43,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. List all groups.
-     {{.Prompt}} {{.HelpName}} myminio
+     {{.Prompt}} {{.HelpName}} myserver
 `,
 }
 
@@ -54,7 +54,7 @@ func checkAdminGroupListSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminGroupList is the handle for "mc admin group list" command.
+// mainAdminGroupList is the handle for "lc admin group list" command.
 func mainAdminGroupList(ctx *cli.Context) error {
 	checkAdminGroupListSyntax(ctx)
 

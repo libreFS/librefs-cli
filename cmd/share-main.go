@@ -61,7 +61,7 @@ func migrateShare() {
 	}
 }
 
-// mainShare - main handler for mc share command.
+// mainShare - main handler for lc share command.
 func mainShare(ctx *cli.Context) error {
 	commandNotFound(ctx, shareSubcommands)
 	return nil

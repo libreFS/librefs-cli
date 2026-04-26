@@ -43,7 +43,7 @@ var adminUserSTSAcctCmd = cli.Command{
 	HideHelpCommand: true,
 }
 
-// mainAdminUserSTSAcct is the handle for "mc admin user sts" command.
+// mainAdminUserSTSAcct is the handle for "lc admin user sts" command.
 func mainAdminUserSTSAcct(ctx *cli.Context) error {
 	commandNotFound(ctx, adminUserSTSAcctSubcommands)
 	return nil
@@ -74,7 +74,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Display information for the temporary account 'J123C4ZXEQN8RK6ND35I'
-     {{.Prompt}} {{.HelpName}} myminio/ J123C4ZXEQN8RK6ND35I
+     {{.Prompt}} {{.HelpName}} myserver/ J123C4ZXEQN8RK6ND35I
 `,
 }
 
@@ -85,7 +85,7 @@ func checkAdminUserSTSAcctInfoSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminUserSTSAcctInfo is the handle for "mc admin user sts info" command.
+// mainAdminUserSTSAcctInfo is the handle for "lc admin user sts info" command.
 func mainAdminUserSTSAcctInfo(ctx *cli.Context) error {
 	checkAdminUserSTSAcctInfoSyntax(ctx)
 

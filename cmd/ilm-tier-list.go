@@ -50,8 +50,8 @@ FLAGS:
   {{end}}
 
 EXAMPLES:
-  1. List remote tier targets configured on 'myminio':
-     {{.Prompt}} {{.HelpName}} myminio
+  1. List remote tier targets configured on 'myserver':
+     {{.Prompt}} {{.HelpName}} myserver
 `,
 }
 
@@ -111,7 +111,7 @@ func mainAdminTierList(ctx *cli.Context) error {
 	fatalIf(probe.NewError(e).Trace(args...), "Unable to list configured remote tier targets")
 
 	if len(tiers) == 0 {
-		console.Infoln("No remote tier targets found for alias '" + aliasedURL + "'. Use `mc ilm tier add` to configure one.")
+		console.Infoln("No remote tier targets found for alias '" + aliasedURL + "'. Use `lc ilm tier add` to configure one.")
 		return nil
 	}
 

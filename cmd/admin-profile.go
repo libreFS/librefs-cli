@@ -38,8 +38,8 @@ var adminProfileCmd = cli.Command{
 	Hidden:          true,
 }
 
-// mainAdminProfile is the handle for "mc admin profile" command.
+// mainAdminProfile is the handle for "lc admin profile" command.
 func mainAdminProfile(_ *cli.Context) error {
-	deprecatedError("mc support profile")
+	deprecatedError("lc support profile")
 	return nil
 }

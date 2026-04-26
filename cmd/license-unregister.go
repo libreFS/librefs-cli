@@ -47,8 +47,8 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Unregister libreFS cluster at alias 'myminio' from SUBNET
-     {{.Prompt}} {{.HelpName}} myminio
+  1. Unregister libreFS cluster at alias 'myserver' from SUBNET
+     {{.Prompt}} {{.HelpName}} myserver
 `,
 }
 

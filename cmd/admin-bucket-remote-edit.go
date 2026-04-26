@@ -31,8 +31,8 @@ var adminBucketRemoteEditCmd = cli.Command{
 	HideHelp:     true,
 }
 
-// mainAdminBucketRemoteEdit is the handle for "mc admin bucket remote edit" command.
+// mainAdminBucketRemoteEdit is the handle for "lc admin bucket remote edit" command.
 func mainAdminBucketRemoteEdit(_ *cli.Context) error {
-	deprecatedError("mc replicate update")
+	deprecatedError("lc replicate update")
 	return nil
 }

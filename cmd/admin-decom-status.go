@@ -48,9 +48,9 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Show current decommissioning status.
-     {{.Prompt}} {{.HelpName}} myminio/ http://server{5...8}/disk{1...4}
+     {{.Prompt}} {{.HelpName}} myserver/ http://server{5...8}/disk{1...4}
   2. List all current decommissioning status of all pools.
-     {{.Prompt}} {{.HelpName}} myminio/
+     {{.Prompt}} {{.HelpName}} myserver/
 `,
 }
 
@@ -61,7 +61,7 @@ func checkAdminDecommissionStatusSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminDecommissionStatus is the handle for "mc admin decomission status" command.
+// mainAdminDecommissionStatus is the handle for "lc admin decomission status" command.
 func mainAdminDecommissionStatus(ctx *cli.Context) error {
 	checkAdminDecommissionStatusSyntax(ctx)
 

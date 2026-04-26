@@ -49,11 +49,11 @@ FLAGS:
   {{end}}
 
 EXAMPLES:
-  1. Prints per-tier statistics of all remote tier targets configured on 'myminio':
-     {{.Prompt}} {{.HelpName}} myminio
+  1. Prints per-tier statistics of all remote tier targets configured on 'myserver':
+     {{.Prompt}} {{.HelpName}} myserver
 
-  2. Print per-tier statistics of given tier name 'MINIOTIER-1':
-     {{.Prompt}} {{.HelpName}} myminio MINIOTIER-1
+  2. Print per-tier statistics of given tier name 'LIBREFSTIER-1':
+     {{.Prompt}} {{.HelpName}} myserver LIBREFSTIER-1
 `,
 }
 

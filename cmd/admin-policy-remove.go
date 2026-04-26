@@ -46,7 +46,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Remove 'writeonly' policy on libreFS server.
-     {{.Prompt}} {{.HelpName}} myminio writeonly
+     {{.Prompt}} {{.HelpName}} myserver writeonly
 `,
 }
 
@@ -57,7 +57,7 @@ func checkAdminPolicyRemoveSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminPolicyRemove is the handle for "mc admin policy remove" command.
+// mainAdminPolicyRemove is the handle for "lc admin policy remove" command.
 func mainAdminPolicyRemove(ctx *cli.Context) error {
 	checkAdminPolicyRemoveSyntax(ctx)
 

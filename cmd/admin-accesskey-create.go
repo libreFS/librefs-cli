@@ -70,22 +70,22 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Create a new access key pair with the same policy as the authenticated user
-     {{.Prompt}} {{.HelpName}} myminio/
+     {{.Prompt}} {{.HelpName}} myserver/
 
   2. Create a new access key pair with custom access key and secret key
-     {{.Prompt}} {{.HelpName}} myminio/ --access-key myaccesskey --secret-key mysecretkey
+     {{.Prompt}} {{.HelpName}} myserver/ --access-key myaccesskey --secret-key mysecretkey
 
   3. Create a new access key pair for user 'tester' that expires in 1 day
-     {{.Prompt}} {{.HelpName}} myminio/ tester --expiry-duration 24h
+     {{.Prompt}} {{.HelpName}} myserver/ tester --expiry-duration 24h
 
   4. Create a new access key pair for authenticated user that expires on 2025-01-01
      {{.Prompt}} {{.HelpName}} --expiry 2025-01-01
 
   5. Create a new access key pair for user 'tester' with a custom policy
-	 {{.Prompt}} {{.HelpName}} myminio/ tester --policy /path/to/policy.json
+	 {{.Prompt}} {{.HelpName}} myserver/ tester --policy /path/to/policy.json
 
   6. Create a new access key pair for user 'tester' with a custom name and description
-	 {{.Prompt}} {{.HelpName}} myminio/ tester --name "Tester's Access Key" --description "Access key for tester"
+	 {{.Prompt}} {{.HelpName}} myserver/ tester --name "Tester's Access Key" --description "Access key for tester"
 `,
 }
 

@@ -54,7 +54,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Display information for service account 'J123C4ZXEQN8RK6ND35I'
-     {{.Prompt}} {{.HelpName}} myminio/ J123C4ZXEQN8RK6ND35I
+     {{.Prompt}} {{.HelpName}} myserver/ J123C4ZXEQN8RK6ND35I
 `,
 }
 
@@ -65,7 +65,7 @@ func checkAdminUserSvcAcctInfoSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminUserSvcAcctInfo is the handle for "mc admin user svcacct info" command.
+// mainAdminUserSvcAcctInfo is the handle for "lc admin user svcacct info" command.
 func mainAdminUserSvcAcctInfo(ctx *cli.Context) error {
 	checkAdminUserSvcAcctInfoSyntax(ctx)
 

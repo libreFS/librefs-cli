@@ -117,27 +117,27 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Add replication configuration rule on bucket "sourcebucket" for alias "sourceminio" with alias "targetminio" to replicate all operations in an active-active replication setup.
-     {{.Prompt}} {{.HelpName}} sourceminio/sourcebucket --remote-bucket targetminio/targetbucket \
+  1. Add replication configuration rule on bucket "sourcebucket" for alias "source" with alias "target" to replicate all operations in an active-active replication setup.
+     {{.Prompt}} {{.HelpName}} source/sourcebucket --remote-bucket target/targetbucket \
          --priority 1 
 
-  2. Add replication configuration rule on bucket "mybucket" for alias "myminio" to replicate all operations in an active-active replication setup.
+  2. Add replication configuration rule on bucket "mybucket" for alias "myserver" to replicate all operations in an active-active replication setup.
      {{.Prompt}} {{.HelpName}} myminio/mybucket --remote-bucket https://foobar:foo12345@minio.siteb.example.com/targetbucket \
          --priority 1 
 
-  3. Add replication configuration rule on bucket "mybucket" for alias "myminio" to replicate all objects with tags
+  3. Add replication configuration rule on bucket "mybucket" for alias "myserver" to replicate all objects with tags
      "key1=value1, key2=value2" to targetbucket synchronously with bandwidth set to 2 gigabits per second. 
      {{.Prompt}} {{.HelpName}} myminio/mybucket --remote-bucket https://foobar:foo12345@minio.siteb.example.com/targetbucket  \
          --tags "key1=value1&key2=value2" --bandwidth "2G" --sync \
          --priority 1
 
-  4. Disable a replication configuration rule on bucket "mybucket" for alias "myminio".
+  4. Disable a replication configuration rule on bucket "mybucket" for alias "myserver".
      {{.Prompt}} {{.HelpName}} myminio/mybucket --remote-bucket https://foobar:foo12345@minio.siteb.example.com/targetbucket  \
          --tags "key1=value1&key2=value2" \
          --priority 1 --disable
 
   5. Add replication configuration rule with existing object replication, delete marker replication and versioned deletes
-     enabled on bucket "mybucket" for alias "myminio".
+     enabled on bucket "mybucket" for alias "myserver".
      {{.Prompt}} {{.HelpName}} myminio/mybucket --remote-bucket https://foobar:foo12345@minio.siteb.example.com/targetbucket  \
          --replicate "existing-objects,delete,delete-marker" \
          --priority 1

@@ -37,10 +37,10 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Export the provided 'alias' to credentials.json file:
-     {{ .Prompt }} {{ .HelpName }} myminio/ > credentials.json
+     {{ .Prompt }} {{ .HelpName }} myserver/ > credentials.json
 
   2. Export the credentials to standard output and pipe it to import command
-     {{ .Prompt }} {{ .HelpName }} alias1/  | mc alias import alias2/
+     {{ .Prompt }} {{ .HelpName }} alias1/  | lc alias import alias2/
 `,
 }
 

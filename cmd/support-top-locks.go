@@ -61,7 +61,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. List oldest locks on a libreFS cluster.
-     {{.Prompt}} {{.HelpName}} myminio/
+     {{.Prompt}} {{.HelpName}} myserver/
 `,
 }
 

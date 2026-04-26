@@ -41,7 +41,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Remove the CORS configuration for the bucket 'mybucket':
-     {{.Prompt}} {{.HelpName}} myminio/mybucket
+     {{.Prompt}} {{.HelpName}} myserver/mybucket
  `,
 }
 
@@ -52,7 +52,7 @@ func checkCorsRemoveSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainCorsRemove is the handle for "mc cors remove" command.
+// mainCorsRemove is the handle for "lc cors remove" command.
 func mainCorsRemove(ctx *cli.Context) error {
 	checkCorsRemoveSyntax(ctx)
 

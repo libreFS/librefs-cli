@@ -43,7 +43,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Enable group 'allcents'.
-     {{.Prompt}} {{.HelpName}} myminio allcents
+     {{.Prompt}} {{.HelpName}} myserver allcents
 `,
 }
 
@@ -54,7 +54,7 @@ func checkAdminGroupEnableSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminGroupEnableDisable is the handle for "mc admin group enable|disable" command.
+// mainAdminGroupEnableDisable is the handle for "lc admin group enable|disable" command.
 func mainAdminGroupEnableDisable(ctx *cli.Context) error {
 	checkAdminGroupEnableSyntax(ctx)
 

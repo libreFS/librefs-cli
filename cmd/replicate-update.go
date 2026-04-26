@@ -109,32 +109,32 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Change priority of rule with rule ID "bsibgh8t874dnjst8hkg" on bucket "mybucket" for alias "myminio".
-     {{.Prompt}} {{.HelpName}} myminio/mybucket --id "bsibgh8t874dnjst8hkg"  --priority 3
+  1. Change priority of rule with rule ID "bsibgh8t874dnjst8hkg" on bucket "mybucket" for alias "myserver".
+     {{.Prompt}} {{.HelpName}} myserver/mybucket --id "bsibgh8t874dnjst8hkg"  --priority 3
 
-  2. Disable a replication configuration rule with rule ID "bsibgh8t874dnjst8hkg" on target myminio/bucket
-     {{.Prompt}} {{.HelpName}} myminio/mybucket --id "bsibgh8t874dnjst8hkg" --state disable
+  2. Disable a replication configuration rule with rule ID "bsibgh8t874dnjst8hkg" on target myserver/bucket
+     {{.Prompt}} {{.HelpName}} myserver/mybucket --id "bsibgh8t874dnjst8hkg" --state disable
 
-  3. Set tags and storage class on a replication configuration with rule ID "kMYD.491" on target myminio/bucket/prefix.
-     {{.Prompt}} {{.HelpName}} myminio/mybucket --id "kMYD.491" --tags "key1=value1&key2=value2" \
+  3. Set tags and storage class on a replication configuration with rule ID "kMYD.491" on target myserver/bucket/prefix.
+     {{.Prompt}} {{.HelpName}} myserver/mybucket --id "kMYD.491" --tags "key1=value1&key2=value2" \
 				  --storage-class "STANDARD" --priority 2
-  4. Clear tags for replication configuration rule with ID "kMYD.491" on a target myminio/bucket.
-     {{.Prompt}} {{.HelpName}} myminio/mybucket --id "kMYD.491" --tags ""
+  4. Clear tags for replication configuration rule with ID "kMYD.491" on a target myserver/bucket.
+     {{.Prompt}} {{.HelpName}} myserver/mybucket --id "kMYD.491" --tags ""
 
-  5. Enable delete marker replication on a replication configuration rule with ID "kxYD.491" on a target myminio/bucket.
-     {{.Prompt}} {{.HelpName}} myminio/mybucket --id "kxYD.491" --replicate "delete-marker"
+  5. Enable delete marker replication on a replication configuration rule with ID "kxYD.491" on a target myserver/bucket.
+     {{.Prompt}} {{.HelpName}} myserver/mybucket --id "kxYD.491" --replicate "delete-marker"
 
-  6. Disable delete marker and versioned delete replication on a replication configuration rule with ID "kxYD.491" on a target myminio/bucket.
-     {{.Prompt}} {{.HelpName}} myminio/mybucket --id "kxYD.491" --replicate ""
+  6. Disable delete marker and versioned delete replication on a replication configuration rule with ID "kxYD.491" on a target myserver/bucket.
+     {{.Prompt}} {{.HelpName}} myserver/mybucket --id "kxYD.491" --replicate ""
 
-  7. Enable existing object replication on a configuration rule with ID "kxYD.491" on a target myminio/bucket. Rule previously had enabled delete marker and versioned delete replication.
-     {{.Prompt}} {{.HelpName}} myminio/mybucket --id "kxYD.491" --replicate "existing-objects,delete-marker,delete"
+  7. Enable existing object replication on a configuration rule with ID "kxYD.491" on a target myserver/bucket. Rule previously had enabled delete marker and versioned delete replication.
+     {{.Prompt}} {{.HelpName}} myserver/mybucket --id "kxYD.491" --replicate "existing-objects,delete-marker,delete"
 
   8. Edit credentials for remote target with replication rule ID kxYD.491
      {{.Prompt}} {{.HelpName}} myminio/mybucket --id "kxYD.491" --remote-bucket  https://foobar:newpassword@minio.siteb.example.com/targetbucket
   
-  9. Edit credentials with alias "targetminio" for remote target with replication rule ID kxYD.491
-     {{.Prompt}} {{.HelpName}} myminio/mybucket --id "kxYD.491" --remote-bucket  targetminio/targetbucket
+  9. Edit credentials with alias "target" for remote target with replication rule ID kxYD.491
+     {{.Prompt}} {{.HelpName}} myserver/mybucket --id "kxYD.491" --remote-bucket  target/targetbucket
 
   10. Disable proxying and enable synchronous replication for remote target of bucket mybucket with rule ID kxYD.492
      {{.Prompt}} {{.HelpName}} myminio/mybucket --id "kxYD.492" --remote-bucket https://foobar:newpassword@minio.siteb.example.com/targetbucket \

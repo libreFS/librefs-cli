@@ -137,7 +137,7 @@ func (stat statMessage) String() (msg string) {
 			found = true
 		}
 		if !found {
-			// encryption headers are present but not something we recognize, check `mc stat --debug`
+			// encryption headers are present but not something we recognize, check `lc stat --debug`
 			// to obtain more information and understand if we are missing something.
 			msgBuilder.WriteString(fmt.Sprintf("%-10s: SSE-%s\n", "Encryption", "Unknown"))
 		}

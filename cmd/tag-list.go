@@ -73,28 +73,28 @@ DESCRIPTION:
 
 EXAMPLES:
   1. List the tags assigned to an object.
-     {{.Prompt}} {{.HelpName}} myminio/testbucket/testobject
+     {{.Prompt}} {{.HelpName}} myserver/testbucket/testobject
 
   2. List the tags assigned to particular version of an object.
-     {{.Prompt}} {{.HelpName}} --version-id "ieQq7aXsyhlhDt47YURGlrucYY3GxWHa" myminio/testbucket/testobject
+     {{.Prompt}} {{.HelpName}} --version-id "ieQq7aXsyhlhDt47YURGlrucYY3GxWHa" myserver/testbucket/testobject
 
   3. List the tags assigned to an object versions that are older than one week.
-     {{.Prompt}} {{.HelpName}} --versions --rewind 7d myminio/testbucket/testobject
+     {{.Prompt}} {{.HelpName}} --versions --rewind 7d myserver/testbucket/testobject
 
   4. List the tags assigned to an object in JSON format.
-     {{.Prompt}} {{.HelpName}} --json myminio/testbucket/testobject
+     {{.Prompt}} {{.HelpName}} --json myserver/testbucket/testobject
 
   5. List the tags assigned to a bucket.
-     {{.Prompt}} {{.HelpName}} myminio/testbucket
+     {{.Prompt}} {{.HelpName}} myserver/testbucket
 
   6. List the tags assigned to a bucket in JSON format.
      {{.Prompt}} {{.HelpName}} --json s3/testbucket
 
   7. List the tags recursively for all the objects of subdirs of bucket.
-     {{.Prompt}} {{.HelpName}} --recursive myminio/testbucket
+     {{.Prompt}} {{.HelpName}} --recursive myserver/testbucket
 
   8. Show the tags recursively for all versions of all objects of subdirs of bucket.
-     {{.Prompt}} {{.HelpName}} --recursive --versions myminio/testbucket
+     {{.Prompt}} {{.HelpName}} --recursive --versions myserver/testbucket
 `,
 }
 
@@ -176,7 +176,7 @@ func showTags(ctx context.Context, clnt Client, versionID string) {
 	tagsMap, err := clnt.GetTags(ctx, versionID)
 	if err != nil {
 		if minio.ToErrorResponse(err.ToGoError()).Code == "NoSuchTagSet" {
-			fatalIf(probe.NewError(errors.New("check 'mc tag set --help' on how to set tags")), "No tags found  for "+targetName)
+			fatalIf(probe.NewError(errors.New("check 'lc tag set --help' on how to set tags")), "No tags found  for "+targetName)
 		}
 		fatalIf(err, "Unable to fetch tags for "+targetName)
 		return

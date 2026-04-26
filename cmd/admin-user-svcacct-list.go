@@ -46,7 +46,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. List all service accounts for user 'foobar'.
-     {{.Prompt}} {{.HelpName}} myminio/ foobar
+     {{.Prompt}} {{.HelpName}} myserver/ foobar
 `,
 }
 
@@ -57,7 +57,7 @@ func checkAdminUserSvcAcctListSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminUserSvcAcctList is the handle for "mc admin user svcacct ls" command.
+// mainAdminUserSvcAcctList is the handle for "lc admin user svcacct ls" command.
 func mainAdminUserSvcAcctList(ctx *cli.Context) error {
 	checkAdminUserSvcAcctListSyntax(ctx)
 

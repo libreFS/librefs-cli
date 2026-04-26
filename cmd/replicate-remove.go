@@ -61,11 +61,11 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Remove replication configuration rule on bucket "mybucket" for alias "myminio" with rule id "bsib5mgt874bi56l0fmg".
-     {{.Prompt}} {{.HelpName}} --id "bsib5mgt874bi56l0fmg" myminio/mybucket
+  1. Remove replication configuration rule on bucket "mybucket" for alias "myserver" with rule id "bsib5mgt874bi56l0fmg".
+     {{.Prompt}} {{.HelpName}} --id "bsib5mgt874bi56l0fmg" myserver/mybucket
 
-  2. Remove all the replication configuration rules on bucket "mybucket" for alias "myminio". --force flag is required.
-     {{.Prompt}} {{.HelpName}} --all --force myminio/mybucket
+  2. Remove all the replication configuration rules on bucket "mybucket" for alias "myserver". --force flag is required.
+     {{.Prompt}} {{.HelpName}} --all --force myserver/mybucket
 `,
 }
 
@@ -81,7 +81,7 @@ func checkReplicateRemoveSyntax(ctx *cli.Context) {
 	rmChk := (rmAll && rmForce) || (!rmAll && !rmForce)
 	if !rmChk {
 		fatalIf(errInvalidArgument(),
-			"It is mandatory to specify --all and --force flag together for mc "+ctx.Command.FullName()+".")
+			"It is mandatory to specify --all and --force flag together for lc "+ctx.Command.FullName()+".")
 	}
 	if rmAll && rmForce {
 		return

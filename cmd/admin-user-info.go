@@ -46,7 +46,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Display the info of a user "foobar".
-     {{.Prompt}} {{.HelpName}} myminio foobar
+     {{.Prompt}} {{.HelpName}} myserver foobar
 `,
 }
 
@@ -57,7 +57,7 @@ func checkAdminUserInfoSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminUserInfo is the handler for "mc admin user info" command.
+// mainAdminUserInfo is the handler for "lc admin user info" command.
 func mainAdminUserInfo(ctx *cli.Context) error {
 	checkAdminUserInfoSyntax(ctx)
 

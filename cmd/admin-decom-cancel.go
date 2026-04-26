@@ -46,10 +46,10 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Cancel an ongoing decommissioning of a pool.
-     {{.Prompt}} {{.HelpName}} myminio/ http://server{5...8}/disk{1...4}
+     {{.Prompt}} {{.HelpName}} myserver/ http://server{5...8}/disk{1...4}
 
   2. Cancel all ongoing decommissioning of pools.
-     {{.Prompt}} {{.HelpName}} myminio/
+     {{.Prompt}} {{.HelpName}} myserver/
 `,
 }
 
@@ -60,7 +60,7 @@ func checkAdminDecommissionCancelSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminDecommissionCancel is the handle for "mc admin decommission cancel" command.
+// mainAdminDecommissionCancel is the handle for "lc admin decommission cancel" command.
 func mainAdminDecommissionCancel(ctx *cli.Context) error {
 	checkAdminDecommissionCancelSyntax(ctx)
 

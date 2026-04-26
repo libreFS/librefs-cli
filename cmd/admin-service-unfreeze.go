@@ -44,8 +44,8 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Unfreeze all S3 API calls on libreFS server at 'myminio/'.
-     {{.Prompt}} {{.HelpName}} myminio/
+  1. Unfreeze all S3 API calls on libreFS server at 'myserver/'.
+     {{.Prompt}} {{.HelpName}} myserver/
 `,
 }
 

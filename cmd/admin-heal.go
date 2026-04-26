@@ -126,8 +126,8 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Monitor healing status on a running server at alias 'myminio':
-     {{.Prompt}} {{.HelpName}} myminio/
+  1. Monitor healing status on a running server at alias 'myserver':
+     {{.Prompt}} {{.HelpName}} myserver/
 `,
 }
 

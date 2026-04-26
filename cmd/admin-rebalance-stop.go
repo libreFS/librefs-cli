@@ -44,8 +44,8 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Stop an ongoing rebalance on a libreFS deployment with alias myminio
-     {{.Prompt}} {{.HelpName}} myminio
+  1. Stop an ongoing rebalance on a libreFS deployment with alias myserver
+     {{.Prompt}} {{.HelpName}} myserver
 `,
 }
 

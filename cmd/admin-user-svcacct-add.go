@@ -89,19 +89,19 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Add a new service account for user 'foobar' to libreFS server with a name and description.
-     {{.Prompt}} {{.HelpName}} myminio foobar --name uploaderKey --description "foobar uploader scripts"
+     {{.Prompt}} {{.HelpName}} myserver foobar --name uploaderKey --description "foobar uploader scripts"
 
   2. Add a new service account to libreFS server with specified access key and secret key for user 'foobar'.
-     {{.Prompt}} {{.HelpName}} myminio foobar --access-key "myaccesskey" --secret-key "mysecretkey"
+     {{.Prompt}} {{.HelpName}} myserver foobar --access-key "myaccesskey" --secret-key "mysecretkey"
 
   3. Add a new service account to libreFS server with specified access key and random secret key for user 'foobar'.
-     {{.Prompt}} {{.HelpName}} myminio foobar --access-key "myaccesskey"
+     {{.Prompt}} {{.HelpName}} myserver foobar --access-key "myaccesskey"
 
   4. Add a new service account to libreFS server with specified secret key and random access key for user 'foobar'.
-     {{.Prompt}} {{.HelpName}} myminio foobar --secret-key "mysecretkey"
+     {{.Prompt}} {{.HelpName}} myserver foobar --secret-key "mysecretkey"
 
   5. Add a new service account to libreFS server with specified expiry date in the future for user 'foobar'.
-     {{.Prompt}} {{.HelpName}} myminio foobar --expiry 2023-06-24T10:00:00-07:00
+     {{.Prompt}} {{.HelpName}} myserver foobar --expiry 2023-06-24T10:00:00-07:00
 `,
 }
 
@@ -269,7 +269,7 @@ func (u acctMessage) JSON() string {
 	return string(jsonMessageBytes)
 }
 
-// mainAdminUserSvcAcctAdd is the handle for "mc admin user svcacct add" command.
+// mainAdminUserSvcAcctAdd is the handle for "lc admin user svcacct add" command.
 func mainAdminUserSvcAcctAdd(ctx *cli.Context) error {
 	checkAdminUserSvcAcctAddSyntax(ctx)
 

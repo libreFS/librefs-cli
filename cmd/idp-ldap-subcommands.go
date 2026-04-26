@@ -44,7 +44,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Create LDAP IDentity Provider configuration.
-     {{.Prompt}} {{.HelpName}} myminio/ \
+     {{.Prompt}} {{.HelpName}} myserver/ \
           server_addr=myldapserver:636 \
           lookup_bind_dn=cn=admin,dc=min,dc=io \
           lookup_bind_password=somesecret \

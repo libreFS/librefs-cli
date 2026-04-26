@@ -38,7 +38,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
    1. Display current in-progress JOB events.
-      {{.Prompt}} {{.HelpName}} myminio/ KwSysDpxcBU9FNhGkn2dCf
+      {{.Prompt}} {{.HelpName}} myserver/ KwSysDpxcBU9FNhGkn2dCf
 `,
 }
 

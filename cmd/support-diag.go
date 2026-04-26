@@ -84,14 +84,14 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Upload libreFS diagnostics report for cluster with alias 'myminio' to SUBNET
-     {{.Prompt}} {{.HelpName}} myminio
+  1. Upload libreFS diagnostics report for cluster with alias 'myserver' to SUBNET
+     {{.Prompt}} {{.HelpName}} myserver
 
-  2. Generate libreFS diagnostics report for cluster with alias 'myminio', save and upload to SUBNET manually
-     {{.Prompt}} {{.HelpName}} myminio --airgap
+  2. Generate libreFS diagnostics report for cluster with alias 'myserver', save and upload to SUBNET manually
+     {{.Prompt}} {{.HelpName}} myserver --airgap
 
-  3. Upload libreFS diagnostics report for cluster with alias 'myminio' to SUBNET, with strict anonymization
-     {{.Prompt}} {{.HelpName}} myminio --anonymize=strict
+  3. Upload libreFS diagnostics report for cluster with alias 'myserver' to SUBNET, with strict anonymization
+     {{.Prompt}} {{.HelpName}} myserver --anonymize=strict
 `,
 }
 

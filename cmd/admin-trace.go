@@ -217,28 +217,28 @@ UNITS
 
 EXAMPLES:
   1. Show verbose console trace for libreFS server
-     {{.Prompt}} {{.HelpName}} -v -a myminio
+     {{.Prompt}} {{.HelpName}} -v -a myserver
 
   2. Show trace only for failed requests for libreFS server
-    {{.Prompt}} {{.HelpName}} -v -e myminio
+    {{.Prompt}} {{.HelpName}} -v -e myserver
 
   3. Show verbose console trace for requests with '503' status code
-    {{.Prompt}} {{.HelpName}} -v --status-code 503 myminio
+    {{.Prompt}} {{.HelpName}} -v --status-code 503 myserver
 
   4. Show console trace for a specific path
-    {{.Prompt}} {{.HelpName}} --path my-bucket/my-prefix/* myminio
+    {{.Prompt}} {{.HelpName}} --path my-bucket/my-prefix/* myserver
 
   5. Show console trace for requests with '404' and '503' status code
-    {{.Prompt}} {{.HelpName}} --status-code 404 --status-code 503 myminio
+    {{.Prompt}} {{.HelpName}} --status-code 404 --status-code 503 myserver
   
   6. Show trace only for requests bytes greater than 1MB
-    {{.Prompt}} {{.HelpName}} --filter-request --filter-size 1MB myminio
+    {{.Prompt}} {{.HelpName}} --filter-request --filter-size 1MB myserver
 
   7. Show trace only for response bytes greater than 1MB
-    {{.Prompt}} {{.HelpName}} --filter-response --filter-size 1MB myminio
+    {{.Prompt}} {{.HelpName}} --filter-response --filter-size 1MB myserver
   
   8. Show trace only for requests operations duration greater than 5ms
-     {{.Prompt}} {{.HelpName}} --response-duration 5ms myminio
+     {{.Prompt}} {{.HelpName}} --response-duration 5ms myserver
 `,
 }
 

@@ -53,7 +53,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Create a new canned policy 'writeonly'.
-     {{.Prompt}} {{.HelpName}} myminio writeonly /tmp/writeonly.json
+     {{.Prompt}} {{.HelpName}} myserver writeonly /tmp/writeonly.json
  `,
 }
 
@@ -116,7 +116,7 @@ func (u userPolicyMessage) JSON() string {
 	return string(jsonMessageBytes)
 }
 
-// mainAdminPolicyCreate is the handle for "mc admin policy create" command.
+// mainAdminPolicyCreate is the handle for "lc admin policy create" command.
 func mainAdminPolicyCreate(ctx *cli.Context) error {
 	checkAdminPolicyCreateSyntax(ctx)
 

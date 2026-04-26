@@ -66,7 +66,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Set hard quota of 1gb for a bucket "mybucket" on libreFS.
-     {{.Prompt}} {{.HelpName}} myminio/mybucket --size 1GB
+     {{.Prompt}} {{.HelpName}} myserver/mybucket --size 1GB
 `,
 }
 
@@ -107,7 +107,7 @@ func checkQuotaSetSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainQuotaSet is the handler for "mc quota set" command.
+// mainQuotaSet is the handler for "lc quota set" command.
 func mainQuotaSet(ctx *cli.Context) error {
 	checkQuotaSetSyntax(ctx)
 

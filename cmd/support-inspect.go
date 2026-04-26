@@ -72,13 +72,13 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Upload 'xl.meta' of a specific object from all the drives
-     {{.Prompt}} {{.HelpName}} myminio/bucket/test*/xl.meta
+     {{.Prompt}} {{.HelpName}} myserver/bucket/test*/xl.meta
 
   2. Upload recursively all objects at a prefix. NOTE: This can be an expensive operation use it with caution.
-     {{.Prompt}} {{.HelpName}} myminio/bucket/test/**
+     {{.Prompt}} {{.HelpName}} myserver/bucket/test/**
 
   3. Download 'xl.meta' of a specific object from all the drives locally, and upload to SUBNET manually
-     {{.Prompt}} {{.HelpName}} myminio/bucket/test*/xl.meta --airgap
+     {{.Prompt}} {{.HelpName}} myserver/bucket/test*/xl.meta --airgap
 `,
 }
 
@@ -186,7 +186,7 @@ func mainSupportInspect(ctx *cli.Context) error {
 	fatalIf(probe.NewError(e).Trace(aliasedURL), "Unable to inspect file.")
 
 	// Download the inspect data in a temporary file first
-	tmpFile, e := os.CreateTemp("", "mc-inspect-")
+	tmpFile, e := os.CreateTemp("", "lc-inspect-")
 	fatalIf(probe.NewError(e), "Unable to download file data.")
 	copied := false
 

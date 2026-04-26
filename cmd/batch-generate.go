@@ -50,9 +50,9 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Generate a new batch 'replication' job definition:
-     {{.Prompt}} {{.HelpName}} myminio replicate > replication.yaml
+     {{.Prompt}} {{.HelpName}} myserver replicate > replication.yaml
   2. List all supported job types:
-     {{.Prompt}} {{.HelpName}} myminio list
+     {{.Prompt}} {{.HelpName}} myserver list
 `,
 }
 
@@ -63,7 +63,7 @@ func checkBatchGenerateSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainBatchGenerate is the handle for "mc batch generate" command.
+// mainBatchGenerate is the handle for "lc batch generate" command.
 func mainBatchGenerate(ctx *cli.Context) error {
 	checkBatchGenerateSyntax(ctx)
 

@@ -42,7 +42,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Get info on group 'allcents'.
-     {{.Prompt}} {{.HelpName}} myminio allcents
+     {{.Prompt}} {{.HelpName}} myserver allcents
 `,
 }
 
@@ -53,7 +53,7 @@ func checkAdminGroupInfoSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminGroupInfo is the handle for "mc admin group info" command.
+// mainAdminGroupInfo is the handle for "lc admin group info" command.
 func mainAdminGroupInfo(ctx *cli.Context) error {
 	checkAdminGroupInfoSyntax(ctx)
 

@@ -87,16 +87,16 @@ FLAGS:
   {{end}}{{end}}
 EXAMPLES:
   1. Return Latency and liveness probe.
-     {{.Prompt}} {{.HelpName}} myminio
+     {{.Prompt}} {{.HelpName}} myserver
 
   2. Return Latency and liveness probe 5 number of times.
-     {{.Prompt}} {{.HelpName}} --count 5 myminio
+     {{.Prompt}} {{.HelpName}} --count 5 myserver
 
   3. Return Latency and liveness with wait interval set to 30 seconds.
-     {{.Prompt}} {{.HelpName}} --interval 30 myminio
+     {{.Prompt}} {{.HelpName}} --interval 30 myserver
 
   4. Stop pinging when error count > 20.
-     {{.Prompt}} {{.HelpName}} --error-count 20 myminio
+     {{.Prompt}} {{.HelpName}} --error-count 20 myserver
 `,
 }
 

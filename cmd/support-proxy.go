@@ -38,7 +38,7 @@ var supportProxyCmd = cli.Command{
 	HideHelpCommand: true,
 }
 
-// mainSupportProxy is the handler for "mc support proxy" command.
+// mainSupportProxy is the handler for "lc support proxy" command.
 func mainSupportProxy(ctx *cli.Context) error {
 	commandNotFound(ctx, supportProxySubcommands)
 	return nil

@@ -43,7 +43,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Disable a user 'foobar' on libreFS server.
-     {{.Prompt}} {{.HelpName}} myminio foobar
+     {{.Prompt}} {{.HelpName}} myserver foobar
 `,
 }
 
@@ -54,7 +54,7 @@ func checkAdminUserDisableSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminUserDisable is the handle for "mc admin user disable" command.
+// mainAdminUserDisable is the handle for "lc admin user disable" command.
 func mainAdminUserDisable(ctx *cli.Context) error {
 	checkAdminUserDisableSyntax(ctx)
 

@@ -40,8 +40,8 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Show the proxy configured for cluster with alias 'myminio'
-     {{.Prompt}} {{.HelpName}} myminio
+  1. Show the proxy configured for cluster with alias 'myserver'
+     {{.Prompt}} {{.HelpName}} myserver
 `,
 }
 
@@ -71,7 +71,7 @@ func checkSupportProxyShowSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainSupportProxyShow is the handler for "mc support proxy show" command.
+// mainSupportProxyShow is the handler for "lc support proxy show" command.
 func mainSupportProxyShow(ctx *cli.Context) error {
 	// Check for command syntax
 	checkSupportProxyShowSyntax(ctx)

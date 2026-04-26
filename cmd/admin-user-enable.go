@@ -43,7 +43,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Enable a disabled user 'foobar' on libreFS server.
-     {{.Prompt}} {{.HelpName}} myminio foobar
+     {{.Prompt}} {{.HelpName}} myserver foobar
 `,
 }
 
@@ -54,7 +54,7 @@ func checkAdminUserEnableSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminUserEnable is the handle for "mc admin user enable" command.
+// mainAdminUserEnable is the handle for "lc admin user enable" command.
 func mainAdminUserEnable(ctx *cli.Context) error {
 	checkAdminUserEnableSyntax(ctx)
 

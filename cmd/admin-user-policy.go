@@ -46,7 +46,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Display the policy document of a user "foobar" in JSON format.
-     {{.Prompt}} {{.HelpName}} myminio foobar
+     {{.Prompt}} {{.HelpName}} myserver foobar
 `,
 }
 
@@ -57,7 +57,7 @@ func checkAdminUserPolicySyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminUserPolicy is the handler for "mc admin user policy" command.
+// mainAdminUserPolicy is the handler for "lc admin user policy" command.
 func mainAdminUserPolicy(ctx *cli.Context) error {
 	checkAdminUserPolicySyntax(ctx)
 

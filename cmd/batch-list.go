@@ -55,10 +55,10 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. List all current batch jobs:
-     {{.Prompt}} {{.HelpName}} myminio
+     {{.Prompt}} {{.HelpName}} myserver
 
   2. List all current batch jobs of type 'replicate':
-     {{.Prompt}} {{.HelpName}} myminio/ --type "replicate"
+     {{.Prompt}} {{.HelpName}} myserver/ --type "replicate"
 `,
 }
 
@@ -181,7 +181,7 @@ func checkBatchListSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainBatchList is the handle for "mc batch create" command.
+// mainBatchList is the handle for "lc batch create" command.
 func mainBatchList(ctx *cli.Context) error {
 	checkBatchListSyntax(ctx)
 

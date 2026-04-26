@@ -48,7 +48,7 @@ import (
 // Check for new software updates.
 var updateCmd = cli.Command{
 	Name:         "update",
-	Usage:        "update mc to latest release",
+	Usage:        "update lc to latest release",
 	Action:       mainUpdate,
 	OnUsageError: onUsageError,
 	Flags: []cli.Flag{
@@ -72,7 +72,7 @@ EXIT STATUS:
  -1 - error in getting update information
 
 EXAMPLES:
-  1. Check and update mc:
+  1. Check and update lc:
      {{.Prompt}} {{.HelpName}}
 `,
 }
@@ -80,7 +80,7 @@ EXAMPLES:
 const (
 	mcReleaseTagTimeLayout = "2006-01-02T15-04-05Z"
 	mcOSARCH               = runtime.GOOS + "-" + runtime.GOARCH
-	mcReleaseURL           = "https://github.com/libreFS/mc/releases/latest/download/" + mcOSARCH + "/"
+	mcReleaseURL           = "https://github.com/libreFS/lc/releases/latest/download/" + mcOSARCH + "/"
 
 	envMinisignPubKey = "MC_UPDATE_MINISIGN_PUBKEY"
 )
@@ -89,7 +89,7 @@ const (
 var mcReleaseWindowsInfoURL = mcReleaseURL + "lc.exe.sha256sum"
 
 // mcVersionToReleaseTime - parses a standard official release
-// mc --version string.
+// lc --version string.
 //
 // An official binary's version string is the release time formatted
 // with RFC3339 (in UTC) - e.g. `2017-09-29T19:16:56Z`
@@ -121,7 +121,7 @@ func getModTime(path string) (t time.Time, err *probe.Error) {
 		return t, probe.NewError(fmt.Errorf("Unable to get absolute path of %s. %w", path, e))
 	}
 
-	// Version is mc non-standard, we will use mc binary's
+	// Version is lc non-standard, we will use lc binary's
 	// ModTime as release time.
 	var fi os.FileInfo
 	fi, e = os.Stat(path)
@@ -134,14 +134,14 @@ func getModTime(path string) (t time.Time, err *probe.Error) {
 }
 
 // GetCurrentReleaseTime - returns this process's release time.  If it
-// is official mc --version, parsed version is returned else mc
+// is official lc --version, parsed version is returned else lc
 // binary's mod time is returned.
 func GetCurrentReleaseTime() (releaseTime time.Time, err *probe.Error) {
 	if releaseTime, err = mcVersionToReleaseTime(Version); err == nil {
 		return releaseTime, nil
 	}
 
-	// Looks like version is mc non-standard, we use mc
+	// Looks like version is lc non-standard, we use lc
 	// binary's ModTime as release time:
 	path, e := os.Executable()
 	if e != nil {
@@ -150,7 +150,7 @@ func GetCurrentReleaseTime() (releaseTime time.Time, err *probe.Error) {
 	return getModTime(path)
 }
 
-// IsDocker - returns if the environment mc is running in docker or
+// IsDocker - returns if the environment lc is running in docker or
 // not. The check is a simple file existence check.
 //
 // https://github.com/moby/moby/blob/master/daemon/initlayer/setup_unix.go#L25
@@ -165,7 +165,7 @@ func IsDocker() bool {
 	return e == nil
 }
 
-// IsDCOS returns true if mc is running in DCOS.
+// IsDCOS returns true if lc is running in DCOS.
 func IsDCOS() bool {
 	// http://mesos.apache.org/documentation/latest/docker-containerizer/
 	// Mesos docker containerizer sets this value
@@ -191,7 +191,7 @@ func IsSourceBuild() bool {
 // DO NOT CHANGE USER AGENT STYLE.
 // The style should be
 //
-//	mc (<OS>; <ARCH>[; dcos][; kubernetes][; docker][; source]) mc/<VERSION> mc/<RELEASE-TAG> mc/<COMMIT-ID>
+//	lc (<OS>; <ARCH>[; dcos][; kubernetes][; docker][; source]) lc/<VERSION> lc/<RELEASE-TAG> lc/<COMMIT-ID>
 //
 // Any change here should be discussed by opening an issue at
 // https://github.com/minio/mc/issues.
@@ -203,7 +203,7 @@ func getUserAgent() string {
 		userAgentParts = append(userAgentParts, p, q)
 	}
 
-	uaAppend("mc (", runtime.GOOS)
+	uaAppend("lc (", runtime.GOOS)
 	uaAppend("; ", runtime.GOARCH)
 	if IsDCOS() {
 		uaAppend("; ", "dcos")
@@ -218,9 +218,9 @@ func getUserAgent() string {
 		uaAppend("; ", "source")
 	}
 
-	uaAppend(") mc/", Version)
-	uaAppend(" mc/", ReleaseTag)
-	uaAppend(" mc/", CommitID)
+	uaAppend(") lc/", Version)
+	uaAppend(" lc/", ReleaseTag)
+	uaAppend(" lc/", CommitID)
 
 	return strings.Join(userAgentParts, "")
 }
@@ -252,7 +252,7 @@ func downloadReleaseURL(releaseChecksumURL string, timeout time.Duration) (conte
 	return string(contentBytes), nil
 }
 
-// DownloadReleaseData - downloads release data from mc official server.
+// DownloadReleaseData - downloads release data from lc official server.
 func DownloadReleaseData(customReleaseURL string, timeout time.Duration) (data string, err *probe.Error) {
 	releaseURL := mcReleaseInfoURL
 	if runtime.GOOS == "windows" {
@@ -271,13 +271,13 @@ func DownloadReleaseData(customReleaseURL string, timeout time.Duration) (data s
 }
 
 // parseReleaseData - parses release info file content fetched from
-// official mc download server.
+// official lc download server.
 //
 // The expected format is a single line with two words like:
 //
-// fbe246edbd382902db9a4035df7dce8cb441357d mc.RELEASE.2016-10-07T01-16-39Z
+// fbe246edbd382902db9a4035df7dce8cb441357d lc.RELEASE.2016-10-07T01-16-39Z
 //
-// The second word must be `mc.` appended to a standard release tag.
+// The second word must be `lc.` appended to a standard release tag.
 func parseReleaseData(data string) (sha256Hex string, releaseTime time.Time, releaseTag string, err *probe.Error) {
 	fields := strings.Fields(data)
 	if len(fields) != 2 {
@@ -291,7 +291,7 @@ func parseReleaseData(data string) (sha256Hex string, releaseTime time.Time, rel
 	if len(fields) != 2 {
 		return sha256Hex, releaseTime, "", probe.NewError(fmt.Errorf("Unknown release information `%s`", releaseInfo))
 	}
-	if fields[0] != "mc" {
+	if fields[0] != "lc" {
 		return sha256Hex, releaseTime, "", probe.NewError(fmt.Errorf("Unknown release `%s`", releaseInfo))
 	}
 
@@ -316,7 +316,7 @@ func getDownloadURL(customReleaseURL, releaseTag string) (downloadURL string) {
 	// Check if we are docker environment, return docker update command
 	if IsDocker() {
 		// Construct release tag name.
-		return fmt.Sprintf("docker pull ghcr.io/libreFS/mc:%s", releaseTag)
+		return fmt.Sprintf("docker pull ghcr.io/libreFS/lc:%s", releaseTag)
 	}
 
 	if customReleaseURL == "" {
@@ -420,13 +420,13 @@ func getUpdateReaderFromURL(u *url.URL, transport http.RoundTripper) (io.ReadClo
 		return nil, errors.New(resp.Status)
 	}
 
-	return newProgressReader(resp.Body, "mc", resp.ContentLength), nil
+	return newProgressReader(resp.Body, "lc", resp.ContentLength), nil
 }
 
 func doUpdate(customReleaseURL, sha256Hex string, latestReleaseTime time.Time, releaseTag string, ok bool) (updateStatusMsg string, err *probe.Error) {
 	fmtReleaseTime := latestReleaseTime.Format(mcReleaseTagTimeLayout)
 	if !ok {
-		updateStatusMsg = colorGreenBold("mc update to version %s canceled.",
+		updateStatusMsg = colorGreenBold("lc update to version %s canceled.",
 			releaseTag)
 		return updateStatusMsg, nil
 	}
@@ -457,7 +457,7 @@ func doUpdate(customReleaseURL, sha256Hex string, latestReleaseTime time.Time, r
 	minisignPubkey := env.Get(envMinisignPubKey, "")
 	if minisignPubkey != "" {
 		v := selfupdate.NewVerifier()
-		u.Path = path.Dir(u.Path) + "/mc." + releaseTag + ".minisig"
+		u.Path = path.Dir(u.Path) + "/lc." + releaseTag + ".minisig"
 		if e = v.LoadFromURL(u.String(), minisignPubkey, transport); e != nil {
 			return updateStatusMsg, probe.NewError(e)
 		}
@@ -466,7 +466,7 @@ func doUpdate(customReleaseURL, sha256Hex string, latestReleaseTime time.Time, r
 
 	if e := opts.CheckPermissions(); e != nil {
 		permErrMsg := fmt.Sprintf(" failed with: %s", e)
-		updateStatusMsg = colorYellowBold("mc update to version RELEASE.%s %s.",
+		updateStatusMsg = colorYellowBold("lc update to version RELEASE.%s %s.",
 			fmtReleaseTime, permErrMsg)
 		return updateStatusMsg, nil
 	}
@@ -474,22 +474,22 @@ func doUpdate(customReleaseURL, sha256Hex string, latestReleaseTime time.Time, r
 	if e = selfupdate.Apply(rc, opts); e != nil {
 		if re := selfupdate.RollbackError(e); re != nil {
 			rollBackErr := fmt.Sprintf("Failed to rollback from bad update: %v", re)
-			updateStatusMsg = colorYellowBold("mc update to version RELEASE.%s %s.", fmtReleaseTime, rollBackErr)
+			updateStatusMsg = colorYellowBold("lc update to version RELEASE.%s %s.", fmtReleaseTime, rollBackErr)
 			return updateStatusMsg, probe.NewError(e)
 		}
 
 		var pathErr *os.PathError
 		if errors.As(e, &pathErr) {
 			pathErrMsg := fmt.Sprintf("Unable to update the binary at %s: %v", filepath.Dir(pathErr.Path), pathErr.Err)
-			updateStatusMsg = colorYellowBold("mc update to version RELEASE.%s %s.",
+			updateStatusMsg = colorYellowBold("lc update to version RELEASE.%s %s.",
 				fmtReleaseTime, pathErrMsg)
 			return updateStatusMsg, nil
 		}
 
-		return colorYellowBold(fmt.Sprintf("Error in mc update to version RELEASE.%s %v.", fmtReleaseTime, e)), nil
+		return colorYellowBold(fmt.Sprintf("Error in lc update to version RELEASE.%s %v.", fmtReleaseTime, e)), nil
 	}
 
-	return colorGreenBold("mc updated to version RELEASE.%s successfully.", fmtReleaseTime), nil
+	return colorGreenBold("lc updated to version RELEASE.%s successfully.", fmtReleaseTime), nil
 }
 
 type updateMessage struct {
@@ -523,7 +523,7 @@ func mainUpdate(ctx *cli.Context) {
 
 	updateMsg, sha256Hex, _, latestReleaseTime, releaseTag, err := getUpdateInfo(customReleaseURL, 10*time.Second)
 	if err != nil {
-		errorIf(err, "Unable to update ‘mc’.")
+		errorIf(err, "Unable to update ‘lc’.")
 		os.Exit(-1)
 	}
 
@@ -532,7 +532,7 @@ func mainUpdate(ctx *cli.Context) {
 	if updateMsg == "" {
 		printMsg(updateMessage{
 			Status:  "success",
-			Message: colorGreenBold("You are already running the most recent version of ‘mc’."),
+			Message: colorGreenBold("You are already running the most recent version of ‘lc’."),
 		})
 		os.Exit(0)
 	}
@@ -542,13 +542,13 @@ func mainUpdate(ctx *cli.Context) {
 		Message: updateMsg,
 	})
 
-	// Avoid updating mc development, source builds.
+	// Avoid updating lc development, source builds.
 	if updateMsg != "" {
 		var updateStatusMsg string
 		var err *probe.Error
 		updateStatusMsg, err = doUpdate(customReleaseURL, sha256Hex, latestReleaseTime, releaseTag, true)
 		if err != nil {
-			errorIf(err, "Unable to update ‘mc’.")
+			errorIf(err, "Unable to update ‘lc’.")
 			os.Exit(-1)
 		}
 		printMsg(updateMessage{Status: "success", Message: updateStatusMsg})

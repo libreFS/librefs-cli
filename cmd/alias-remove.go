@@ -65,7 +65,7 @@ func checkAliasRemoveSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAliasRemove is the handle for "mc alias rm" command.
+// mainAliasRemove is the handle for "lc alias rm" command.
 func mainAliasRemove(ctx *cli.Context) error {
 	checkAliasRemoveSyntax(ctx)
 

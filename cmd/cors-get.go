@@ -41,7 +41,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Get the CORS configuration for the bucket 'mybucket':
-     {{.Prompt}} {{.HelpName}} myminio/mybucket
+     {{.Prompt}} {{.HelpName}} myserver/mybucket
  `,
 }
 
@@ -52,7 +52,7 @@ func checkCorsGetSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainCorsGet is the handle for "mc cors get" command.
+// mainCorsGet is the handle for "lc cors get" command.
 func mainCorsGet(ctx *cli.Context) error {
 	checkCorsGetSyntax(ctx)
 

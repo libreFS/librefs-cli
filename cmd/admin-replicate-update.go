@@ -84,16 +84,16 @@ FLAGS:
 
 EXAMPLES:
   1. Edit a site endpoint participating in cluster-level replication:
-     {{.Prompt}} {{.HelpName}} myminio --deployment-id c1758167-4426-454f-9aae-5c3dfdf6df64 --endpoint https://minio2:9000
+     {{.Prompt}} {{.HelpName}} myserver --deployment-id c1758167-4426-454f-9aae-5c3dfdf6df64 --endpoint https://minio2:9000
 
-  2. Set default bucket bandwidth limit for replication from myminio to the peer cluster with deployment-id c1758167-4426-454f-9aae-5c3dfdf6df64
-     {{.Prompt}} {{.HelpName}} myminio --deployment-id c1758167-4426-454f-9aae-5c3dfdf6df64 --bucket-bandwidth "2G"
+  2. Set default bucket bandwidth limit for replication from myserver to the peer cluster with deployment-id c1758167-4426-454f-9aae-5c3dfdf6df64
+     {{.Prompt}} {{.HelpName}} myserver --deployment-id c1758167-4426-454f-9aae-5c3dfdf6df64 --bucket-bandwidth "2G"
 
   3. Disable replication of ILM expiry in cluster-level replication:
-     {{.Prompt}} {{.HelpName}} myminio --disable-ilm-expiry-replication
+     {{.Prompt}} {{.HelpName}} myserver --disable-ilm-expiry-replication
 
   4. Enable replication of ILM expiry in cluster-level replication:
-     {{.Prompt}} {{.HelpName}} myminio --enable-ilm-expiry-replication
+     {{.Prompt}} {{.HelpName}} myserver --enable-ilm-expiry-replication
 `,
 }
 

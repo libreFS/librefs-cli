@@ -64,12 +64,12 @@ DESCRIPTION:
   all the lifecycle rules on a bucket with '--all --force' option.
 
 EXAMPLES:
-  1. Remove the lifecycle management configuration rule given by ID "bgrt1ghju" for mybucket on alias 'myminio'. ID is case sensitive.
-     {{.Prompt}} {{.HelpName}} --id "bgrt1ghju" myminio/mybucket
+  1. Remove the lifecycle management configuration rule given by ID "bgrt1ghju" for mybucket on alias 'myserver'. ID is case sensitive.
+     {{.Prompt}} {{.HelpName}} --id "bgrt1ghju" myserver/mybucket
 
-  2. Remove ALL the lifecycle management configuration rules for mybucket on alias 'myminio'.
+  2. Remove ALL the lifecycle management configuration rules for mybucket on alias 'myserver'.
      Because the result is complete removal, the use of --force flag is enforced.
-     {{.Prompt}} {{.HelpName}} --all --force myminio/mybucket
+     {{.Prompt}} {{.HelpName}} --all --force myserver/mybucket
 `,
 }
 
@@ -104,7 +104,7 @@ func checkILMRemoveSyntax(ctx *cli.Context) {
 	forceChk := (ilmAll && ilmForce) || (!ilmAll && !ilmForce)
 	if !forceChk {
 		fatalIf(errInvalidArgument(),
-			"It is mandatory to specify --all and --force flag together for mc "+ctx.Command.FullName()+".")
+			"It is mandatory to specify --all and --force flag together for lc "+ctx.Command.FullName()+".")
 	}
 	if ilmAll && ilmForce {
 		return

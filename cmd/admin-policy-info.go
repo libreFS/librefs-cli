@@ -55,10 +55,10 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Show information on a given policy.
-     {{.Prompt}} {{.HelpName}} myminio writeonly
+     {{.Prompt}} {{.HelpName}} myserver writeonly
 
   2. Show information on a given policy and write the policy JSON content to /tmp/policy.json.
-     {{.Prompt}} {{.HelpName}} myminio writeonly --policy-file /tmp/policy.json
+     {{.Prompt}} {{.HelpName}} myserver writeonly --policy-file /tmp/policy.json
 `,
 }
 
@@ -87,7 +87,7 @@ func getPolicyInfo(client *madmin.AdminClient, policyName string) (*madmin.Polic
 	return pinfo, nil
 }
 
-// mainAdminPolicyInfo is the handler for "mc admin policy info" command.
+// mainAdminPolicyInfo is the handler for "lc admin policy info" command.
 func mainAdminPolicyInfo(ctx *cli.Context) error {
 	checkAdminPolicyInfoSyntax(ctx)
 

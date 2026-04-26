@@ -84,11 +84,11 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Upload file './trace.log' for cluster 'myminio' to SUBNET issue number 10
-     {{.Prompt}} {{.HelpName}} --issue 10 myminio ./trace.log
+  1. Upload file './trace.log' for cluster 'myserver' to SUBNET issue number 10
+     {{.Prompt}} {{.HelpName}} --issue 10 myserver ./trace.log
 
-  2. Upload file './trace.log' for cluster 'myminio' to SUBNET issue number 10 with comment 'here is the trace log'
-     {{.Prompt}} {{.HelpName}} --issue 10 --comment "here is the trace log" myminio ./trace.log 
+  2. Upload file './trace.log' for cluster 'myserver' to SUBNET issue number 10 with comment 'here is the trace log'
+     {{.Prompt}} {{.HelpName}} --issue 10 --comment "here is the trace log" myserver ./trace.log 
 `,
 }
 
@@ -102,7 +102,7 @@ func checkSupportUploadSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainSupportUpload is the handle for "mc support upload" command.
+// mainSupportUpload is the handle for "lc support upload" command.
 func mainSupportUpload(ctx *cli.Context) error {
 	// Check for command syntax
 	checkSupportUploadSyntax(ctx)

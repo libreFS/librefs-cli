@@ -58,7 +58,7 @@ func Test_FullSuite(t *testing.T) {
 	}()
 
 	preflightCheck(t)
-	// initializeTestSuite builds the mc client and creates local files which are used for testing
+	// initializeTestSuite builds the lc client and creates local files which are used for testing
 	initializeTestSuite(t)
 
 	// Tests within this function depend on one another
@@ -196,7 +196,7 @@ var (
 	jsonOutput               = true
 	printRawOut              = false
 	skipBuild                = false
-	mcCmd                    = ".././mc"
+	mcCmd                    = ".././lc"
 	preCmdParameters         = make([]string, 0)
 	buildPath                = "../."
 	metaPrefix               = "X-Amz-Meta-"
@@ -2912,9 +2912,9 @@ type testFile struct {
 	// These field are not automatically populated unless
 	// the file is created at the initialization phase of
 	// the test suite: testsThatDependOnOneAnother()
-	// Minio mc stat output
+	// Minio lc stat output
 	MinioStat statMessage
-	// Minio mc ls output
+	// Minio lc ls output
 	MinioLS contentMessage
 }
 

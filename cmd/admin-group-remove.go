@@ -44,10 +44,10 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Remove members 'tencent' and 'fivecent' from group 'allcents'.
-     {{.Prompt}} {{.HelpName}} myminio allcents tencent fivecent
+     {{.Prompt}} {{.HelpName}} myserver allcents tencent fivecent
 
   2. Remove group 'allcents'.
-     {{.Prompt}} {{.HelpName}} myminio allcents
+     {{.Prompt}} {{.HelpName}} myserver allcents
 `,
 }
 
@@ -58,7 +58,7 @@ func checkAdminGroupRemoveSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminGroupRemove is the handle for "mc admin group remove" command.
+// mainAdminGroupRemove is the handle for "lc admin group remove" command.
 func mainAdminGroupRemove(ctx *cli.Context) error {
 	checkAdminGroupRemoveSyntax(ctx)
 

@@ -95,7 +95,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
    1. Display current in-progress all scanner operations.
-      {{.Prompt}} {{.HelpName}} myminio/
+      {{.Prompt}} {{.HelpName}} myserver/
 `,
 }
 

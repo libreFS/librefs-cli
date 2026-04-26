@@ -71,10 +71,10 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Change the secret key of the service account 'J123C4ZXEQN8RK6ND35I' in libreFS server.
-     {{.Prompt}} {{.HelpName}} myminio/ 'J123C4ZXEQN8RK6ND35I' --secret-key 'xxxxxxx'
+     {{.Prompt}} {{.HelpName}} myserver/ 'J123C4ZXEQN8RK6ND35I' --secret-key 'xxxxxxx'
 
   2. Change the expiry of the service account 'J123C4ZXEQN8RK6ND35I' in libreFS server.
-     {{.Prompt}} {{.HelpName}} myminio/ 'J123C4ZXEQN8RK6ND35I' --expiry 2023-06-24T10:00:00-07:00
+     {{.Prompt}} {{.HelpName}} myserver/ 'J123C4ZXEQN8RK6ND35I' --expiry 2023-06-24T10:00:00-07:00
 `,
 }
 
@@ -85,7 +85,7 @@ func checkAdminUserSvcAcctSetSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminUserSvcAcctSet is the handle for "mc admin user svcacct set" command.
+// mainAdminUserSvcAcctSet is the handle for "lc admin user svcacct set" command.
 func mainAdminUserSvcAcctSet(ctx *cli.Context) error {
 	checkAdminUserSvcAcctSetSyntax(ctx)
 

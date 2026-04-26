@@ -42,7 +42,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Display bucket quota configured for "mybucket" on libreFS.
-     {{.Prompt}} {{.HelpName}} myminio/mybucket
+     {{.Prompt}} {{.HelpName}} myserver/mybucket
 `,
 }
 
@@ -53,7 +53,7 @@ func checkQuotaInfoSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainQuotaInfo is the handler for "mc quota info" command.
+// mainQuotaInfo is the handler for "lc quota info" command.
 func mainQuotaInfo(ctx *cli.Context) error {
 	checkQuotaInfoSyntax(ctx)
 

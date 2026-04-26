@@ -43,7 +43,7 @@ var adminPolicyCmd = cli.Command{
 	HideHelpCommand: true,
 }
 
-// mainAdminPolicy is the handle for "mc admin policy" command.
+// mainAdminPolicy is the handle for "lc admin policy" command.
 func mainAdminPolicy(ctx *cli.Context) error {
 	commandNotFound(ctx, adminPolicySubcommands)
 	return nil

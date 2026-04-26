@@ -63,13 +63,13 @@ FLAGS:
   {{end}}{{end}}
 EXAMPLES:
   1. Check if the cluster is ready or not
-     {{.Prompt}} {{.HelpName}} myminio
+     {{.Prompt}} {{.HelpName}} myserver
 
   2. Check if the cluster has enough read quorum
-     {{.Prompt}} {{.HelpName}} myminio --cluster-read
+     {{.Prompt}} {{.HelpName}} myserver --cluster-read
 
   3. Check if the cluster is taken down for maintenance
-     {{.Prompt}} {{.HelpName}} myminio --maintenance
+     {{.Prompt}} {{.HelpName}} myserver --maintenance
 `,
 }
 
@@ -102,7 +102,7 @@ func (r readyMessage) JSON() string {
 	return string(jsonMessageBytes)
 }
 
-// mainReady - main handler for mc ready command.
+// mainReady - main handler for lc ready command.
 func mainReady(cliCtx *cli.Context) error {
 	if !cliCtx.Args().Present() {
 		exitCode := 1

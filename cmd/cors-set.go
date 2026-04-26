@@ -50,10 +50,10 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Set the CORS configuration for the bucket 'mybucket':
-     {{.Prompt}} {{.HelpName}} myminio/mybucket /path/to/cors.xml
+     {{.Prompt}} {{.HelpName}} myserver/mybucket /path/to/cors.xml
 
   2. Set the CORS configuration for the bucket 'mybucket' using stdin:
-     {{.Prompt}} {{.HelpName}} myminio/mybucket -
+     {{.Prompt}} {{.HelpName}} myserver/mybucket -
  `,
 }
 
@@ -96,7 +96,7 @@ func checkCorsSetSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainCorsSet is the handle for "mc cors set" command.
+// mainCorsSet is the handle for "lc cors set" command.
 func mainCorsSet(ctx *cli.Context) error {
 	checkCorsSetSyntax(ctx)
 

@@ -56,22 +56,22 @@ FLAGS:
 EXAMPLES:
   1. Add a new user 'foobar' to libreFS server.
      {{.DisableHistory}}
-     {{.Prompt}} {{.HelpName}} myminio foobar foo12345
+     {{.Prompt}} {{.HelpName}} myserver foobar foo12345
      {{.EnableHistory}}
 
   2. Add a new user 'foobar' to libreFS server, prompting for keys.
-     {{.Prompt}} {{.HelpName}} myminio
+     {{.Prompt}} {{.HelpName}} myserver
      Enter Access Key: foobar
      Enter Secret Key: foobar12345
 
   3. Add a new user 'foobar' to libreFS server using piped keys.
      {{.DisableHistory}}
-     {{.Prompt}} echo -e "foobar\nfoobar12345" | {{.HelpName}} myminio
+     {{.Prompt}} echo -e "foobar\nfoobar12345" | {{.HelpName}} myserver
      {{.EnableHistory}}
 
   4. Add a new user 'foobar' to libreFS server, then attach IAM policy "writeonly".
-     {{.Prompt}} {{.HelpName}} myminio foobar foo12345 
-     {{.Prompt}} mc admin policy attach myminio writeonly --user foobar
+     {{.Prompt}} {{.HelpName}} myserver foobar foo12345 
+     {{.Prompt}} lc admin policy attach myserver writeonly --user foobar
 `,
 }
 
@@ -186,7 +186,7 @@ func fetchUserKeys(args cli.Args) (string, string) {
 	return accessKey, secretKey
 }
 
-// mainAdminUserAdd is the handle for "mc admin user add" command.
+// mainAdminUserAdd is the handle for "lc admin user add" command.
 func mainAdminUserAdd(ctx *cli.Context) error {
 	checkAdminUserAddSyntax(ctx)
 

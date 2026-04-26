@@ -62,12 +62,12 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Show logs for a libreFS server with alias 'myminio'
-     {{.Prompt}} {{.HelpName}} myminio
-  2. Show last 5 log entries for node 'node1' for a libreFS server with alias 'myminio'
-     {{.Prompt}} {{.HelpName}} --last 5 myminio node1
-  3. Show application errors in logs for a libreFS server with alias 'myminio'
-     {{.Prompt}} {{.HelpName}} --type application myminio
+  1. Show logs for a libreFS server with alias 'myserver'
+     {{.Prompt}} {{.HelpName}} myserver
+  2. Show last 5 log entries for node 'node1' for a libreFS server with alias 'myserver'
+     {{.Prompt}} {{.HelpName}} --last 5 myserver node1
+  3. Show application errors in logs for a libreFS server with alias 'myserver'
+     {{.Prompt}} {{.HelpName}} --type application myserver
 `,
 }
 

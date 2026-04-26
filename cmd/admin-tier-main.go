@@ -32,8 +32,8 @@ var adminTierCmd = cli.Command{
 	Subcommands:     adminTierDepCmds,
 }
 
-// mainAdminTier is the handle for "mc admin tier" command.
+// mainAdminTier is the handle for "lc admin tier" command.
 func mainAdminTier(_ *cli.Context) error {
-	deprecatedError("mc ilm tier")
+	deprecatedError("lc ilm tier")
 	return nil
 }

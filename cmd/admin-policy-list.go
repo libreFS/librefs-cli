@@ -43,7 +43,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. List all policies on libreFS server.
-     {{.Prompt}} {{.HelpName}} myminio
+     {{.Prompt}} {{.HelpName}} myserver
 `,
 }
 
@@ -54,7 +54,7 @@ func checkAdminPolicyListSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminPolicyList is the handle for "mc admin policy add" command.
+// mainAdminPolicyList is the handle for "lc admin policy add" command.
 func mainAdminPolicyList(ctx *cli.Context) error {
 	checkAdminPolicyListSyntax(ctx)
 

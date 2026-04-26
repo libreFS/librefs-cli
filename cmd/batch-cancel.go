@@ -53,7 +53,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Cancel ongoing batch job:
-     {{.Prompt}} {{.HelpName}} myminio <job-id>
+     {{.Prompt}} {{.HelpName}} myserver <job-id>
 `,
 }
 
@@ -84,7 +84,7 @@ func checkBatchCancelSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainBatchCancel is the handle for "mc batch cancel" command.
+// mainBatchCancel is the handle for "lc batch cancel" command.
 func mainBatchCancel(ctx *cli.Context) error {
 	checkBatchCancelSyntax(ctx)
 

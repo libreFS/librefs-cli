@@ -41,7 +41,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Enable LDAP access key
-	 {{.Prompt}} {{.HelpName}} myminio myaccesskey
+	 {{.Prompt}} {{.HelpName}} myserver myaccesskey
 `,
 }
 

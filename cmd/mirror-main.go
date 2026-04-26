@@ -220,7 +220,7 @@ EXAMPLES:
       {{.Prompt}} {{.HelpName}} --enc-c "minio/archive=MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDA" --enc-c "s3/archive=MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5BBB" s3/archive/ minio/archive/ 
 
   14. Update 'Cache-Control' header on all existing objects recursively.
-      {{.Prompt}} {{.HelpName}} --attr "Cache-Control=max-age=90000,min-fresh=9000" myminio/video-files myminio/video-files
+      {{.Prompt}} {{.HelpName}} --attr "Cache-Control=max-age=90000,min-fresh=9000" myserver/video-files myserver/video-files
 
   15. Mirror a local folder recursively to Amazon S3 cloud storage and preserve all local file attributes.
       {{.Prompt}} {{.HelpName}} -a backup/ s3/archive
@@ -258,7 +258,7 @@ var (
 	)
 )
 
-const uaMirrorAppName = "mc-mirror"
+const uaMirrorAppName = "lc-mirror"
 
 type mirrorJob struct {
 	stopCh chan struct{}
@@ -723,7 +723,7 @@ func (mj *mirrorJob) watchMirrorEvents(ctx context.Context, events []EventInfo) 
 				(getSourceModTimeKey(mirrorURL.SourceContent.Metadata) != "" ||
 					getSourceModTimeKey(mirrorURL.SourceContent.UserMetadata) != "") {
 				// If source has active-active attributes, it means that the
-				// object was uploaded by "mc mirror", hence ignore the event
+				// object was uploaded by "lc mirror", hence ignore the event
 				// to avoid copying it.
 				continue
 			}

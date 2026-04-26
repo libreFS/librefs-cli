@@ -20,4 +20,4 @@
 package cmd
 
 // Newer official download info URLs appear earlier below.
-var mcReleaseInfoURL = mcReleaseURL + "mc.fips.sha256sum"
+var mcReleaseInfoURL = mcReleaseURL + "lc.fips.sha256sum"

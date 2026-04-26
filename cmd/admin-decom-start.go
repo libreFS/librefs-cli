@@ -45,7 +45,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Start decommissioning a pool for removal.
-     {{.Prompt}} {{.HelpName}} myminio/ http://server{5...8}/disk{1...4}
+     {{.Prompt}} {{.HelpName}} myserver/ http://server{5...8}/disk{1...4}
 `,
 }
 
@@ -75,7 +75,7 @@ func (s startDecomMessage) JSON() string {
 	return string(startDecomBytes)
 }
 
-// mainAdminDecommissionStart is the handle for "mc admin decommission start" command.
+// mainAdminDecommissionStart is the handle for "lc admin decommission start" command.
 func mainAdminDecommissionStart(ctx *cli.Context) error {
 	checkAdminDecommissionStartSyntax(ctx)
 

@@ -66,9 +66,9 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Change the secret key for the access key "testkey"
-     {{.Prompt}} {{.HelpName}} myminio/ testkey --secret-key 'xxxxxxx'
+     {{.Prompt}} {{.HelpName}} myserver/ testkey --secret-key 'xxxxxxx'
   2. Change the expiry duration for the access key "testkey"
-     {{.Prompt}} {{.HelpName}} myminio/ testkey --expiry-duration 24h
+     {{.Prompt}} {{.HelpName}} myserver/ testkey --expiry-duration 24h
 `,
 }
 

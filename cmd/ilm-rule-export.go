@@ -46,7 +46,7 @@ DESCRIPTION:
 
 EXAMPLES:
   1. Export lifecycle configuration for 'mybucket' to 'lifecycle.json' file.
-     {{.Prompt}} {{.HelpName}} myminio/mybucket > lifecycle.json
+     {{.Prompt}} {{.HelpName}} myserver/mybucket > lifecycle.json
 
   2. Print lifecycle configuration for 'mybucket' to STDOUT.
      {{.Prompt}} {{.HelpName}} play/mybucket

@@ -42,8 +42,8 @@ var adminBucketQuotaCmd = cli.Command{
 	HideHelpCommand: true,
 }
 
-// mainAdminBucketQuota is the handler for "mc admin bucket quota" command.
+// mainAdminBucketQuota is the handler for "lc admin bucket quota" command.
 func mainAdminBucketQuota(_ *cli.Context) error {
-	deprecatedError("mc quota")
+	deprecatedError("lc quota")
 	return nil
 }

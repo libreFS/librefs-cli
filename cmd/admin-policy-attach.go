@@ -61,13 +61,13 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Attach the "readonly" policy to user "james".
-     {{.Prompt}} {{.HelpName}} myminio readonly --user james
+     {{.Prompt}} {{.HelpName}} myserver readonly --user james
   2. Attach the "audit-policy" and "acct-policy" policies to group "legal".
-     {{.Prompt}} {{.HelpName}} myminio audit-policy acct-policy --group legal
+     {{.Prompt}} {{.HelpName}} myserver audit-policy acct-policy --group legal
 `,
 }
 
-// mainAdminPolicyAttach is the handler for "mc admin policy attach" command.
+// mainAdminPolicyAttach is the handler for "lc admin policy attach" command.
 func mainAdminPolicyAttach(ctx *cli.Context) error {
 	return userAttachOrDetachPolicy(ctx, true)
 }

@@ -89,25 +89,25 @@ UNITS
 
 EXAMPLES:
   1. Show scanner trace for libreFS server
-     {{.Prompt}} {{.HelpName}} myminio
+     {{.Prompt}} {{.HelpName}} myserver
 
   2. Show scanner trace for a specific path
-    {{.Prompt}} {{.HelpName}} --path my-bucket/my-prefix/* myminio
+    {{.Prompt}} {{.HelpName}} --path my-bucket/my-prefix/* myserver
 
   3. Show trace for only ScanObject operations
-    {{.Prompt}} {{.HelpName}} --funcname=scanner.ScanObject myminio
+    {{.Prompt}} {{.HelpName}} --funcname=scanner.ScanObject myserver
 
   4. Avoid printing replication related S3 requests
     {{.Prompt}} {{.HelpName}} --request-header '!X-Minio-Source' myminio
 
   5. Show trace only for ScanObject operations request bytes greater than 1MB
-    {{.Prompt}} {{.HelpName}} --filter-request --filter-size 1MB myminio
+    {{.Prompt}} {{.HelpName}} --filter-request --filter-size 1MB myserver
 
   6. Show trace only for ScanObject operations response bytes greater than 1MB
-    {{.Prompt}} {{.HelpName}} --filter-response --filter-size 1MB myminio
+    {{.Prompt}} {{.HelpName}} --filter-response --filter-size 1MB myserver
   
   7. Show trace only for requests operations duration greater than 5ms
-    {{.Prompt}} {{.HelpName}} --response-duration 5ms myminio
+    {{.Prompt}} {{.HelpName}} --response-duration 5ms myserver
 `,
 }
 

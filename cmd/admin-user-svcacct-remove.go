@@ -43,7 +43,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Remove a service account 'J123C4ZXEQN8RK6ND35I' from libreFS server.
-     {{.Prompt}} {{.HelpName}} myminio/ J123C4ZXEQN8RK6ND35I
+     {{.Prompt}} {{.HelpName}} myserver/ J123C4ZXEQN8RK6ND35I
 `,
 }
 
@@ -54,7 +54,7 @@ func checkAdminUserSvcAcctRemoveSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminUserSvcAcctRemove is the handle for "mc admin user svcacct rm" command.
+// mainAdminUserSvcAcctRemove is the handle for "lc admin user svcacct rm" command.
 func mainAdminUserSvcAcctRemove(ctx *cli.Context) error {
 	console.SetColor("AccMessage", color.New(color.FgGreen))
 

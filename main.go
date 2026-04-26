@@ -20,12 +20,12 @@ package main // import "github.com/minio/mc"
 import (
 	"os"
 
-	mc "github.com/libreFS/librefs-cli/cmd"
+	lc "github.com/libreFS/librefs-cli/cmd"
 	"github.com/minio/pkg/v3/console"
 )
 
 func main() {
-	if e := mc.Main(os.Args); e != nil {
+	if e := lc.Main(os.Args); e != nil {
 		console.Fatalln(e)
 	}
 }

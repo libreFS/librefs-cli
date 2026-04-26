@@ -96,19 +96,19 @@ FLAGS:
   {{end}}
 EXAMPLES:
    1. List all buckets and directories on libreFS object storage server in tree format.
-      {{.Prompt}} {{.HelpName}} myminio
+      {{.Prompt}} {{.HelpName}} myserver
 
    2. List all directories in "mybucket" on libreFS object storage server in tree format.
-      {{.Prompt}} {{.HelpName}} myminio/mybucket/
+      {{.Prompt}} {{.HelpName}} myserver/mybucket/
 
    3. List all directories in "mybucket" on libreFS object storage server hosted on Microsoft Windows in tree format.
-      {{.Prompt}} {{.HelpName}} myminio\mybucket\
+      {{.Prompt}} {{.HelpName}} myserver\mybucket\
 
    4. List all directories and objects in "mybucket" on libreFS object storage server in tree format.
-      {{.Prompt}} {{.HelpName}} --files myminio/mybucket/
+      {{.Prompt}} {{.HelpName}} --files myserver/mybucket/
 
    5. List all directories upto depth level '2' in tree format.
-      {{.Prompt}} {{.HelpName}} --depth 2 myminio/mybucket/
+      {{.Prompt}} {{.HelpName}} --depth 2 myserver/mybucket/
 `,
 }
 
@@ -264,7 +264,7 @@ func doTree(ctx context.Context, url string, timeRef time.Time, level int, branc
 	return nil
 }
 
-// mainTree - is a handler for mc tree command
+// mainTree - is a handler for lc tree command
 func mainTree(cliCtx *cli.Context) error {
 	ctx, cancelList := context.WithCancel(globalContext)
 	defer cancelList()

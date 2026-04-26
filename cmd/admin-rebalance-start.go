@@ -44,8 +44,8 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 xEXAMPLES:
-  1. Start rebalance on a libreFS deployment with alias myminio
-     {{.Prompt}} {{.HelpName}} myminio
+  1. Start rebalance on a libreFS deployment with alias myserver
+     {{.Prompt}} {{.HelpName}} myserver
 `,
 }
 

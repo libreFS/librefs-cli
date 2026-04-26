@@ -31,8 +31,8 @@ var adminBucketRemoteAddCmd = cli.Command{
 	HideHelp:     true,
 }
 
-// mainAdminBucketRemoteAdd is the handle for "mc admin bucket remote set" command.
+// mainAdminBucketRemoteAdd is the handle for "lc admin bucket remote set" command.
 func mainAdminBucketRemoteAdd(_ *cli.Context) error {
-	deprecatedError("mc replicate add")
+	deprecatedError("lc replicate add")
 	return nil
 }

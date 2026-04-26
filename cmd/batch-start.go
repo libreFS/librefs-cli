@@ -48,7 +48,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Start a new batch 'replication' job:
-     {{.Prompt}} {{.HelpName}} myminio ./replication.yaml
+     {{.Prompt}} {{.HelpName}} myserver ./replication.yaml
 `,
 }
 
@@ -79,7 +79,7 @@ func checkBatchStartSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainBatchStart is the handle for "mc batch create" command.
+// mainBatchStart is the handle for "lc batch create" command.
 func mainBatchStart(ctx *cli.Context) error {
 	checkBatchStartSyntax(ctx)
 

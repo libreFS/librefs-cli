@@ -43,7 +43,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Describe current batch job definition:
-     {{.Prompt}} {{.HelpName}} myminio KwSysDpxcBU9FNhGkn2dCf
+     {{.Prompt}} {{.HelpName}} myserver KwSysDpxcBU9FNhGkn2dCf
 `,
 }
 
@@ -54,7 +54,7 @@ func checkBatchDescribeSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainBatchDescribe is the handle for "mc batch create" command.
+// mainBatchDescribe is the handle for "lc batch create" command.
 func mainBatchDescribe(ctx *cli.Context) error {
 	checkBatchDescribeSyntax(ctx)
 

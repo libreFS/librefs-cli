@@ -109,7 +109,7 @@ func checkURLReachable(url string) *probe.Error {
 
 func subnetURLWithAuth(reqURL, apiKey string) (string, map[string]string, error) {
 	if len(apiKey) == 0 {
-		// API key not available in minio/mc config.
+		// API key not available in minio/lc config.
 		// Ask the user to log in to get auth token
 		token, e := subnetLogin()
 		if e != nil {
@@ -313,7 +313,7 @@ func getSubnetAPIKeyFromConfig(alias string) string {
 		return apiKey
 	}
 
-	// otherwise get it from mc config
+	// otherwise get it from lc config
 	return mcConfig().Aliases[alias].APIKey
 }
 
@@ -353,7 +353,7 @@ func getSubnetLicenseFromConfig(alias string) string {
 		return lic
 	}
 
-	// otherwise get it from mc config
+	// otherwise get it from lc config
 	return mcConfig().Aliases[alias].License
 }
 
@@ -574,7 +574,7 @@ func getSubnetAPIKey(alias string) (string, error) {
 		return "", e
 	}
 	if len(apiKey) == 0 && len(lic) == 0 {
-		e = fmt.Errorf("Please register the cluster first by running 'mc license register %s'", alias)
+		e = fmt.Errorf("Please register the cluster first by running 'lc license register %s'", alias)
 		return "", e
 	}
 	return apiKey, nil

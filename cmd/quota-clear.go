@@ -43,7 +43,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Clear bucket quota configured for bucket "mybucket" on libreFS.
-     {{.Prompt}} {{.HelpName}} myminio/mybucket
+     {{.Prompt}} {{.HelpName}} myserver/mybucket
 `,
 }
 
@@ -54,7 +54,7 @@ func checkQuotaClearSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainQuotaClear is the handler for "mc quota clear" command.
+// mainQuotaClear is the handler for "lc quota clear" command.
 func mainQuotaClear(ctx *cli.Context) error {
 	checkQuotaClearSyntax(ctx)
 

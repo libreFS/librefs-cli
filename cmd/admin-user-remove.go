@@ -43,7 +43,7 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Remove a user 'foobar' on libreFS server.
-     {{.Prompt}} {{.HelpName}} myminio foobar
+     {{.Prompt}} {{.HelpName}} myserver foobar
 `,
 }
 
@@ -54,7 +54,7 @@ func checkAdminUserRemoveSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainAdminUserRemove is the handle for "mc admin user remove" command.
+// mainAdminUserRemove is the handle for "lc admin user remove" command.
 func mainAdminUserRemove(ctx *cli.Context) error {
 	checkAdminUserRemoveSyntax(ctx)
 

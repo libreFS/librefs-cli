@@ -56,8 +56,8 @@ FLAGS:
   {{range .VisibleFlags}}{{.}}
   {{end}}
 EXAMPLES:
-  1. Remove the proxy configured for cluster with alias 'myminio'
-     {{.Prompt}} {{.HelpName}} myminio
+  1. Remove the proxy configured for cluster with alias 'myserver'
+     {{.Prompt}} {{.HelpName}} myserver
 `,
 }
 
@@ -67,7 +67,7 @@ func checkSupportProxyRemoveSyntax(ctx *cli.Context) {
 	}
 }
 
-// mainSupportProxyRemove is the handler for "mc support proxy remove" command.
+// mainSupportProxyRemove is the handler for "lc support proxy remove" command.
 func mainSupportProxyRemove(ctx *cli.Context) error {
 	// Check for command syntax
 	checkSupportProxyRemoveSyntax(ctx)

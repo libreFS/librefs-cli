@@ -53,11 +53,11 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Reset MQTT notifcation target 'name1' settings to default values.
-     {{.Prompt}} {{.HelpName}} myminio/ notify_mqtt:name1
+     {{.Prompt}} {{.HelpName}} myserver/ notify_mqtt:name1
   2. Reset compression's 'extensions' setting to default value.
-     {{.Prompt}} {{.HelpName}} myminio/ compression extensions
+     {{.Prompt}} {{.HelpName}} myserver/ compression extensions
   3. Reset site name and site region to default values.
-     {{.Prompt}} {{.HelpName}} myminio/ site name region
+     {{.Prompt}} {{.HelpName}} myserver/ site name region
 `,
 }
 
@@ -74,7 +74,7 @@ func (u configResetMessage) String() (msg string) {
 	msg += console.Colorize("ResetConfigSuccess",
 		fmt.Sprintf("'%s' is successfully reset.", u.key))
 	if u.restart {
-		suggestion := fmt.Sprintf("mc admin service restart %s", u.targetAlias)
+		suggestion := fmt.Sprintf("lc admin service restart %s", u.targetAlias)
 		msg += console.Colorize("ResetConfigSuccess",
 			fmt.Sprintf("\nPlease restart your server with `%s`.", suggestion))
 	}

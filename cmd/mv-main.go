@@ -133,10 +133,10 @@ EXAMPLES:
       {{.Prompt}} {{.HelpName}} --disable-multipart myobject.txt play/mybucket
 
   15. Move a folder using client provided encryption keys from Amazon S3 to libreFS cloud storage.
-      {{.Prompt}} {{.HelpName}} --r --enc-c "s3/documents/=MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MBB" --enc-c "myminio/documents/=MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDA" s3/documents/ myminio/documents/
+      {{.Prompt}} {{.HelpName}} --r --enc-c "s3/documents/=MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MBB" --enc-c "myserver/documents/=MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDA" s3/documents/ myserver/documents/
 
   16. Move a folder using specific server managed encryption keys from Amazon S3 to libreFS cloud storage.
-      {{.Prompt}} {{.HelpName}} --r --enc-s3 "s3/documents" --enc-s3 "myminio/documents" s3/documents/ myminio/documents/
+      {{.Prompt}} {{.HelpName}} --r --enc-s3 "s3/documents" --enc-s3 "myserver/documents" s3/documents/ myserver/documents/
 
   17. Add SHA256 checksum to move a text file to libreFS cloud storage.
       {{.Prompt}} {{.HelpName}} --checksum SHA256 myobject.txt play/mybucket

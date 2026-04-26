@@ -47,10 +47,10 @@ FLAGS:
   {{end}}
 EXAMPLES:
   1. Enable webhook notification target for libreFS server.
-     {{.Prompt}} {{.HelpName}} myminio/ notify_webhook endpoint="http://localhost:8080/minio/events"
+     {{.Prompt}} {{.HelpName}} myserver/ notify_webhook endpoint="http://localhost:8080/minio/events"
 
   2. Change region name for the libreFS server to 'us-west-1'.
-     {{.Prompt}} {{.HelpName}} myminio/ region name=us-west-1
+     {{.Prompt}} {{.HelpName}} myserver/ region name=us-west-1
 
   3. Change healing settings on a distributed libreFS server setup.
      {{.Prompt}} {{.HelpName}} mydist/ heal max_delay=300ms max_io=50
@@ -69,7 +69,7 @@ func (u configSetMessage) String() (msg string) {
 	msg += console.Colorize("SetConfigSuccess",
 		"Successfully applied new settings.")
 	if u.restart {
-		suggestion := color.RedString("mc admin service restart %s", u.targetAlias)
+		suggestion := color.RedString("lc admin service restart %s", u.targetAlias)
 		msg += console.Colorize("SetConfigSuccess",
 			fmt.Sprintf("\nPlease restart your server '%s'.", suggestion))
 	}
