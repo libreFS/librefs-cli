@@ -9,10 +9,14 @@ parts/
 prime/
 stage/
 mc
+lc
 .run*
 .idea/
 mc.RELEASE*
+lc.RELEASE*
 mc.gz
+lc.gz
+.claude-todo.md
 .DS_Store
 .vscode/
 .bin/
