@@ -26,8 +26,8 @@ import (
 	"time"
 
 	"github.com/dustin/go-humanize"
-	json "github.com/minio/colorjson"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	json "github.com/minio/colorjson"
 	"github.com/minio/pkg/v3/console"
 )
 

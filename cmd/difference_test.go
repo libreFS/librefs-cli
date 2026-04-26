@@ -349,12 +349,12 @@ func TestActiveActiveModTimeUpdated(t *testing.T) {
 				Time:         now.Add(time.Hour),
 				UserMetadata: map[string]string{"X-Amz-Meta-Mm-Source-Mtime": "not-a-date"},
 			},
-			dst: reg("s3://tgt/f", 100, "", now),
+			dst:  reg("s3://tgt/f", 100, "", now),
 			want: false,
 		},
 		{
 			name: "invalid dst metadata timestamp — ignored",
-			src: reg("s3://src/f", 100, "", now.Add(time.Hour)),
+			src:  reg("s3://src/f", 100, "", now.Add(time.Hour)),
 			dst: &ClientContent{
 				URL:          *newClientURL("s3://tgt/f"),
 				Type:         os.FileMode(0o644),
@@ -603,10 +603,10 @@ func TestDifferenceETag(t *testing.T) {
 // ── matchExcludeOptions (existing, kept for completeness) ────────────────────
 
 var testCases = []struct {
-	pattern []string
+	pattern   []string
 	srcSuffix string
-	match bool
-	typ ClientURLType
+	match     bool
+	typ       ClientURLType
 }{
 	{nil, "testfile", false, objectStorage},
 	{[]string{"test*"}, "testfile", true, objectStorage},

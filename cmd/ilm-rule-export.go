@@ -22,9 +22,9 @@ import (
 	"errors"
 	"time"
 
+	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
-	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/minio-go/v7/pkg/lifecycle"
 )
 

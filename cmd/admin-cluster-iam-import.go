@@ -26,10 +26,10 @@ import (
 	"strings"
 
 	"github.com/klauspost/compress/zip"
+	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
 	"github.com/minio/madmin-go/v3"
-	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/pkg/v3/console"
 )
 

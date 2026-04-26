@@ -25,10 +25,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/mattn/go-ieproxy"
-	"github.com/minio/madmin-go/v3"
 	"github.com/libreFS/librefs-cli/pkg/httptracer"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/mattn/go-ieproxy"
+	"github.com/minio/madmin-go/v3"
 	"github.com/minio/minio-go/v7/pkg/credentials"
 )
 

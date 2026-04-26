@@ -33,8 +33,8 @@ import (
 
 	"github.com/dustin/go-humanize"
 	"github.com/google/shlex"
-	"github.com/minio/cli"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/minio/cli"
 	"github.com/minio/pkg/v3/console"
 	"golang.org/x/text/unicode/norm"
 

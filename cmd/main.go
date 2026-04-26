@@ -34,9 +34,9 @@ import (
 	"time"
 
 	"github.com/inconshreveable/mousetrap"
+	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/cli"
 	"github.com/minio/madmin-go/v3"
-	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/minio-go/v7/pkg/set"
 	"github.com/minio/pkg/v3/console"
 	"github.com/minio/pkg/v3/env"

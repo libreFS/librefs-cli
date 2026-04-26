@@ -22,8 +22,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/minio/cli"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/minio/cli"
 )
 
 var shareDownloadFlags = []cli.Flag{

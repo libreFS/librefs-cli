@@ -6,8 +6,8 @@ import (
 	"math/rand"
 	"time"
 
-	json "github.com/minio/colorjson"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	json "github.com/minio/colorjson"
 )
 
 type retryManager struct {

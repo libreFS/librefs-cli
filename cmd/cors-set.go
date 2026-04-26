@@ -22,9 +22,9 @@ import (
 	"os"
 
 	"github.com/fatih/color"
+	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
-	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/minio-go/v7/pkg/cors"
 	"github.com/minio/pkg/v3/console"
 )

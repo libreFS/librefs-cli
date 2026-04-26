@@ -26,8 +26,8 @@ import (
 	json "github.com/minio/colorjson"
 
 	humanize "github.com/dustin/go-humanize"
-	"github.com/minio/cli"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/minio/cli"
 )
 
 // make a bucket.

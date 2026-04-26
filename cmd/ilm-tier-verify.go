@@ -18,8 +18,8 @@
 package cmd
 
 import (
-	"github.com/minio/cli"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/minio/cli"
 )
 
 var adminTierVerifyCmd = cli.Command{

@@ -21,8 +21,8 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/minio/cli"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/minio/cli"
 	"github.com/minio/pkg/v3/console"
 )
 

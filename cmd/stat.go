@@ -28,9 +28,9 @@ import (
 	"time"
 
 	"github.com/dustin/go-humanize"
+	"github.com/libreFS/librefs-cli/pkg/probe"
 	json "github.com/minio/colorjson"
 	"github.com/minio/madmin-go/v3"
-	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/lifecycle"
 	"github.com/minio/minio-go/v7/pkg/notification"

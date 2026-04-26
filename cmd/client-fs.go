@@ -38,10 +38,10 @@ import (
 	"github.com/pkg/xattr"
 	"github.com/rjeczalik/notify"
 
-	xfilepath "github.com/minio/filepath"
 	"github.com/libreFS/librefs-cli/pkg/disk"
 	"github.com/libreFS/librefs-cli/pkg/hookreader"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	xfilepath "github.com/minio/filepath"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/cors"
 	"github.com/minio/minio-go/v7/pkg/encrypt"

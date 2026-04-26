@@ -24,10 +24,10 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
+	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
 	"github.com/minio/madmin-go/v3"
-	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/minio-go/v7/pkg/replication"
 	"github.com/minio/pkg/v3/console"
 )

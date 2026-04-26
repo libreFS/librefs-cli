@@ -25,10 +25,10 @@ import (
 
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/jedib0t/go-pretty/v6/text"
-	"github.com/minio/cli"
-	json "github.com/minio/colorjson"
 	"github.com/libreFS/librefs-cli/cmd/ilm"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/minio/cli"
+	json "github.com/minio/colorjson"
 	"github.com/minio/minio-go/v7/pkg/lifecycle"
 )
 
