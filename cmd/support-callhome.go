@@ -113,7 +113,7 @@ func setCallhomeConfig(alias string, enableCallhome bool) {
 	client, err := newAdminClient(alias)
 	fatalIf(err, "Unable to initialize admin connection.")
 
-	if !minioConfigSupportsSubSys(client, "callhome") {
+	if !serverConfigSupportsSubSys(client, "callhome") {
 		fatal(errDummy().Trace(), "Your version of libreFS doesn't support this configuration")
 	}
 

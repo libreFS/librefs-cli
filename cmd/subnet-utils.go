@@ -268,7 +268,7 @@ func SubnetPostReq(reqURL string, payload any, headers map[string]string) (strin
 	return subnetReqDo(r, headers)
 }
 
-func getMinIOSubSysConfig(client *madmin.AdminClient, subSys string) ([]madmin.SubsysConfig, error) {
+func getServerSubSysConfig(client *madmin.AdminClient, subSys string) ([]madmin.SubsysConfig, error) {
 	buf, e := client.GetConfigKV(globalContext, subSys)
 	if e != nil {
 		return nil, e
@@ -277,7 +277,7 @@ func getMinIOSubSysConfig(client *madmin.AdminClient, subSys string) ([]madmin.S
 	return madmin.ParseServerConfigOutput(string(buf))
 }
 
-func getMinIOSubnetConfig(alias string) []madmin.SubsysConfig {
+func getServerSubnetConfig(alias string) []madmin.SubsysConfig {
 	if globalSubnetConfig != nil {
 		return globalSubnetConfig
 	}
@@ -286,7 +286,7 @@ func getMinIOSubnetConfig(alias string) []madmin.SubsysConfig {
 	fatalIf(err, "Unable to initialize admin connection.")
 
 	var e error
-	globalSubnetConfig, e = getMinIOSubSysConfig(client, madmin.SubnetSubSys)
+	globalSubnetConfig, e = getServerSubSysConfig(client, madmin.SubnetSubSys)
 	if e != nil && e.Error() != "unknown sub-system subnet" {
 		fatal(probe.NewError(e), "Unable to get server config for subnet")
 	}
@@ -295,7 +295,7 @@ func getMinIOSubnetConfig(alias string) []madmin.SubsysConfig {
 }
 
 func getKeyFromSubnetConfig(alias, key string) (string, bool) {
-	scfg := getMinIOSubnetConfig(alias)
+	scfg := getServerSubnetConfig(alias)
 
 	// This function only works for fetch config from single target sub-systems
 	// in the server config and is enough for now.
@@ -364,7 +364,7 @@ func mcConfig() *configV10 {
 	return config
 }
 
-func minioConfigSupportsSubSys(client *madmin.AdminClient, subSys string) bool {
+func serverConfigSupportsSubSys(client *madmin.AdminClient, subSys string) bool {
 	help, e := client.HelpConfigKV(globalContext, "", "", false)
 	fatalIf(probe.NewError(e), "Unable to get minio config keys")
 

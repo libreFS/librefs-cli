@@ -141,11 +141,11 @@ func isFeatureEnabled(alias, subSys, target string) bool {
 	// Create a new libreFS Admin Client
 	fatalIf(err, "Unable to initialize admin connection.")
 
-	if !minioConfigSupportsSubSys(client, subSys) {
+	if !serverConfigSupportsSubSys(client, subSys) {
 		return false
 	}
 
-	scfgs, e := getMinIOSubSysConfig(client, subSys)
+	scfgs, e := getServerSubSysConfig(client, subSys)
 	if e != nil {
 		// Ignore error if the given target doesn't exist
 		// e.g. logger_webhook:subnet doesn't exist when
