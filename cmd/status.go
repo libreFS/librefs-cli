@@ -21,7 +21,7 @@ import (
 	"io"
 	"sync/atomic"
 
-	"github.com/minio/mc/pkg/probe"
+	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/pkg/v3/console"
 )
 

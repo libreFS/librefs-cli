@@ -39,9 +39,9 @@ import (
 	"github.com/rjeczalik/notify"
 
 	xfilepath "github.com/minio/filepath"
-	"github.com/minio/mc/pkg/disk"
-	"github.com/minio/mc/pkg/hookreader"
-	"github.com/minio/mc/pkg/probe"
+	"github.com/libreFS/librefs-cli/pkg/disk"
+	"github.com/libreFS/librefs-cli/pkg/hookreader"
+	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/cors"
 	"github.com/minio/minio-go/v7/pkg/encrypt"

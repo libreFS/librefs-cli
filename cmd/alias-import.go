@@ -23,7 +23,7 @@ import (
 	"strings"
 
 	"github.com/minio/cli"
-	"github.com/minio/mc/pkg/probe"
+	"github.com/libreFS/librefs-cli/pkg/probe"
 )
 
 var aliasImportCmd = cli.Command{

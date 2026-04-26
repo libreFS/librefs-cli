@@ -1,4 +1,4 @@
-module github.com/minio/mc
+module github.com/libreFS/librefs-cli
 
 go 1.24.0
 

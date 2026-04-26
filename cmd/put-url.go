@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/minio/mc/pkg/probe"
+	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/minio-go/v7"
 )
 

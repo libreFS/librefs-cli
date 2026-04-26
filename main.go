@@ -20,7 +20,7 @@ package main // import "github.com/minio/mc"
 import (
 	"os"
 
-	mc "github.com/minio/mc/cmd"
+	mc "github.com/libreFS/librefs-cli/cmd"
 	"github.com/minio/pkg/v3/console"
 )
 

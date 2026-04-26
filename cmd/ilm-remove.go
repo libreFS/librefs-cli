@@ -22,8 +22,8 @@ import (
 
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
-	"github.com/minio/mc/cmd/ilm"
-	"github.com/minio/mc/pkg/probe"
+	"github.com/libreFS/librefs-cli/cmd/ilm"
+	"github.com/libreFS/librefs-cli/pkg/probe"
 	"github.com/minio/pkg/v3/console"
 )
 
