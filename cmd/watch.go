@@ -23,7 +23,7 @@ import (
 	"time"
 
 	"github.com/libreFS/librefs-cli/pkg/probe"
-	"github.com/minio/minio-go/v7/pkg/notification"
+	"github.com/libreFS/librefs-go/v7/pkg/notification"
 )
 
 // EventInfo contains the information of the event that occurred and the source

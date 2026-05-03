@@ -19,8 +19,8 @@ package cmd
 
 import (
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/madmin-go/v3"
 	"github.com/minio/cli"
-	"github.com/minio/madmin-go/v3"
 )
 
 var adminPolicyEntitiesFlags = []cli.Flag{

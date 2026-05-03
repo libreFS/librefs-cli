@@ -23,7 +23,7 @@ import (
 	"strings"
 
 	"github.com/libreFS/librefs-cli/pkg/httptracer"
-	"github.com/minio/pkg/v3/console"
+	"github.com/libreFS/pkg/v3/console"
 )
 
 // traceV2 - tracing structure for signature version '2'.

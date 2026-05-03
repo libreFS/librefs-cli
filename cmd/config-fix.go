@@ -26,8 +26,8 @@ import (
 	"strings"
 
 	"github.com/libreFS/librefs-cli/pkg/probe"
-	"github.com/minio/pkg/v3/console"
-	"github.com/minio/pkg/v3/quick"
+	"github.com/libreFS/pkg/v3/console"
+	"github.com/libreFS/pkg/v3/quick"
 )
 
 func fixConfig() {

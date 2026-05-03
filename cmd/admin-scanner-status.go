@@ -37,10 +37,10 @@ import (
 	"github.com/fatih/color"
 	"github.com/klauspost/compress/zstd"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/madmin-go/v3"
+	"github.com/libreFS/pkg/v3/console"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/pkg/v3/console"
 	"github.com/olekukonko/tablewriter"
 )
 
@@ -170,13 +170,10 @@ func (b bucketScanMsg) String() string {
 
 	if fullScan {
 		took := latestESScan.Sub(earliestESScan)
-		sb.WriteString(
-			fmt.Sprintf(
-				"%s %s (took %s)\n",
-				console.Colorize("FullScan", "Full bucket scan: "),
-				humanize.RelTime(now, latestESScan, "", "ago"),
-				fmt.Sprintf("%dd%dh%dm", int(took.Hours()/24), int(took.Hours())%24, int(took.Minutes())%60)),
-		)
+		fmt.Fprintf(&sb, "%s %s (took %s)\n",
+			console.Colorize("FullScan", "Full bucket scan: "),
+			humanize.RelTime(now, latestESScan, "", "ago"),
+			fmt.Sprintf("%dd%dh%dm", int(took.Hours()/24), int(took.Hours())%24, int(took.Minutes())%60))
 	}
 
 	sb.WriteString("\n")
@@ -373,7 +370,7 @@ func (m *scannerMetricsUI) View() string {
 	var s strings.Builder
 
 	if !m.quitting {
-		s.WriteString(fmt.Sprintf("%s %s\n", console.Colorize("metrics-top-title", "Scanner Activity:"), m.spinner.View()))
+		fmt.Fprintf(&s, "%s %s\n", console.Colorize("metrics-top-title", "Scanner Activity:"), m.spinner.View())
 	}
 
 	// Set table header - akin to k8s style

@@ -24,8 +24,8 @@ import (
 
 	"github.com/dustin/go-humanize"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/pkg/v3/console"
 	"github.com/minio/cli"
-	"github.com/minio/pkg/v3/console"
 )
 
 // put command flags.

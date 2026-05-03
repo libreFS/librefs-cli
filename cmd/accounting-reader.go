@@ -24,7 +24,7 @@ import (
 	"time"
 
 	"github.com/fatih/color"
-	"github.com/minio/pkg/v3/console"
+	"github.com/libreFS/pkg/v3/console"
 
 	"github.com/cheggaaa/pb"
 	"github.com/libreFS/librefs-cli/pkg/probe"

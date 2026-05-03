@@ -26,7 +26,7 @@ import (
 	"net/http/httptest"
 	"strconv"
 
-	"github.com/minio/minio-go/v7"
+	minio "github.com/libreFS/librefs-go/v7"
 	checkv1 "gopkg.in/check.v1"
 )
 

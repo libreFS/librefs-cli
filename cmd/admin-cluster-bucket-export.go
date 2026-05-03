@@ -28,9 +28,9 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/pkg/v3/console"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
-	"github.com/minio/pkg/v3/console"
 )
 
 var adminClusterBucketExportCmd = cli.Command{

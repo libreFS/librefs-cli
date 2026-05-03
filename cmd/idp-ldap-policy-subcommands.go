@@ -25,10 +25,10 @@ import (
 
 	"github.com/charmbracelet/lipgloss"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/librefs-go/v7/pkg/set"
+	"github.com/libreFS/madmin-go/v3"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7/pkg/set"
 )
 
 var idpLdapPolicyAttachFlags = []cli.Flag{

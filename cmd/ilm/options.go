@@ -26,8 +26,8 @@ import (
 
 	"github.com/dustin/go-humanize"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/librefs-go/v7/pkg/lifecycle"
 	"github.com/minio/cli"
-	"github.com/minio/minio-go/v7/pkg/lifecycle"
 	"github.com/rs/xid"
 )
 

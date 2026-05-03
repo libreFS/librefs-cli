@@ -41,14 +41,14 @@ import (
 	"github.com/libreFS/librefs-cli/pkg/disk"
 	"github.com/libreFS/librefs-cli/pkg/hookreader"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	minio "github.com/libreFS/librefs-go/v7"
+	"github.com/libreFS/librefs-go/v7/pkg/cors"
+	"github.com/libreFS/librefs-go/v7/pkg/encrypt"
+	"github.com/libreFS/librefs-go/v7/pkg/lifecycle"
+	"github.com/libreFS/librefs-go/v7/pkg/notification"
+	"github.com/libreFS/librefs-go/v7/pkg/replication"
+	"github.com/libreFS/pkg/v3/console"
 	xfilepath "github.com/minio/filepath"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/cors"
-	"github.com/minio/minio-go/v7/pkg/encrypt"
-	"github.com/minio/minio-go/v7/pkg/lifecycle"
-	"github.com/minio/minio-go/v7/pkg/notification"
-	"github.com/minio/minio-go/v7/pkg/replication"
-	"github.com/minio/pkg/v3/console"
 )
 
 // filesystem client

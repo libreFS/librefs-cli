@@ -21,8 +21,8 @@ import (
 	"context"
 	"strings"
 
+	"github.com/libreFS/pkg/v3/console"
 	"github.com/minio/cli"
-	"github.com/minio/pkg/v3/console"
 )
 
 // get command flags.

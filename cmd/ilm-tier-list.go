@@ -25,10 +25,10 @@ import (
 	"github.com/charmbracelet/lipgloss"
 	"github.com/charmbracelet/lipgloss/table"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	madmin "github.com/libreFS/madmin-go/v3"
+	"github.com/libreFS/pkg/v3/console"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
-	madmin "github.com/minio/madmin-go/v3"
-	"github.com/minio/pkg/v3/console"
 )
 
 var adminTierListCmd = cli.Command{

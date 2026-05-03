@@ -26,9 +26,9 @@ import (
 	"strings"
 	"time"
 
+	minio "github.com/libreFS/librefs-go/v7"
+	"github.com/libreFS/pkg/v3/wildcard"
 	"github.com/minio/cli"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/pkg/v3/wildcard"
 )
 
 //

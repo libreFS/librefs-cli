@@ -35,10 +35,10 @@ import (
 
 	"github.com/dustin/go-humanize"
 	"github.com/libreFS/librefs-cli/pkg/probe"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/encrypt"
-	"github.com/minio/minio-go/v7/pkg/tags"
-	"github.com/minio/pkg/v3/env"
+	minio "github.com/libreFS/librefs-go/v7"
+	"github.com/libreFS/librefs-go/v7/pkg/encrypt"
+	"github.com/libreFS/librefs-go/v7/pkg/tags"
+	"github.com/libreFS/pkg/v3/env"
 )
 
 // Check if the passed URL represents a folder. It may or may not exist yet.

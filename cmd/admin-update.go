@@ -27,10 +27,10 @@ import (
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/jedib0t/go-pretty/v6/text"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/madmin-go/v3"
+	"github.com/libreFS/pkg/v3/console"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/pkg/v3/console"
 )
 
 var adminUpdateFlags = []cli.Flag{

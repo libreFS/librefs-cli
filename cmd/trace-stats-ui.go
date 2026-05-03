@@ -30,8 +30,8 @@ import (
 	"github.com/charmbracelet/lipgloss"
 	"github.com/dustin/go-humanize"
 	"github.com/fatih/color"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/pkg/v3/console"
+	"github.com/libreFS/madmin-go/v3"
+	"github.com/libreFS/pkg/v3/console"
 	"github.com/muesli/reflow/truncate"
 	"github.com/olekukonko/tablewriter"
 	"golang.org/x/term"
@@ -94,8 +94,8 @@ func (m *traceStatsUI) View() string {
 	var s strings.Builder
 
 	dur := m.current.Latest.Sub(m.current.Oldest)
-	s.WriteString(fmt.Sprintf("%s %s\n",
-		console.Colorize("metrics-top-title", "Duration: "+dur.Round(time.Second).String()), m.meter.View()))
+	fmt.Fprintf(&s, "%s %s\n",
+		console.Colorize("metrics-top-title", "Duration: "+dur.Round(time.Second).String()), m.meter.View())
 
 	// Set table header - akin to k8s style
 	// https://github.com/olekukonko/tablewriter#example-10---set-nowhitespace-and-tablepadding-option

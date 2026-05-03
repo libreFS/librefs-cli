@@ -25,9 +25,9 @@ import (
 	"time"
 
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/madmin-go/v3"
+	"github.com/libreFS/pkg/v3/policy"
 	"github.com/minio/cli"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/pkg/v3/policy"
 )
 
 var idpLdapAccesskeyEditFlags = []cli.Flag{

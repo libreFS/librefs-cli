@@ -24,9 +24,9 @@ import (
 	"time"
 
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	minio "github.com/libreFS/librefs-go/v7"
+	"github.com/libreFS/pkg/v3/console"
 	json "github.com/minio/colorjson"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/pkg/v3/console"
 )
 
 // Structured message depending on the type of console.

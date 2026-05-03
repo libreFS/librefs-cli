@@ -22,11 +22,11 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/librefs-go/v7/pkg/set"
+	"github.com/libreFS/madmin-go/v3"
+	"github.com/libreFS/pkg/v3/console"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/minio/pkg/v3/console"
 )
 
 const (

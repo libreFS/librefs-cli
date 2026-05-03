@@ -23,7 +23,7 @@ import (
 	"strings"
 
 	"github.com/libreFS/librefs-cli/pkg/probe"
-	"github.com/minio/minio-go/v7"
+	minio "github.com/libreFS/librefs-go/v7"
 )
 
 // preparePutURLs - prepares target and source clientURLs for copying.

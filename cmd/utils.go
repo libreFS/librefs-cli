@@ -33,13 +33,13 @@ import (
 	"strings"
 	"time"
 
+	minio "github.com/libreFS/librefs-go/v7"
+	"github.com/libreFS/madmin-go/v3"
 	"github.com/mattn/go-ieproxy"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7"
 
 	jwtgo "github.com/golang-jwt/jwt/v4"
 	"github.com/libreFS/librefs-cli/pkg/probe"
-	"github.com/minio/pkg/v3/console"
+	"github.com/libreFS/pkg/v3/console"
 )
 
 func isErrIgnored(err *probe.Error) (ignored bool) {

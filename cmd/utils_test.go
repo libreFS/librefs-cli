@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	minio "github.com/minio/minio-go/v7"
+	minio "github.com/libreFS/librefs-go/v7"
 )
 
 func TestLineTrunc(t *testing.T) {

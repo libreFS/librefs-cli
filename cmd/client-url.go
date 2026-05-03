@@ -27,7 +27,7 @@ import (
 	"time"
 
 	"github.com/libreFS/librefs-cli/pkg/probe"
-	"github.com/minio/pkg/v3/mimedb"
+	"github.com/libreFS/pkg/v3/mimedb"
 )
 
 // ClientURL url client url structure

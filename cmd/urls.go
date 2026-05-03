@@ -19,7 +19,7 @@ package cmd
 
 import (
 	"github.com/libreFS/librefs-cli/pkg/probe"
-	"github.com/minio/minio-go/v7"
+	minio "github.com/libreFS/librefs-go/v7"
 )
 
 // URLs contains source and target urls

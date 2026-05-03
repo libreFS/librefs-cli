@@ -21,9 +21,9 @@ import (
 	"fmt"
 
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/madmin-go/v3"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
-	"github.com/minio/madmin-go/v3"
 )
 
 var batchGenerateCmd = cli.Command{

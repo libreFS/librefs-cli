@@ -22,8 +22,8 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/madmin-go/v3"
 	"github.com/minio/cli"
-	"github.com/minio/madmin-go/v3"
 )
 
 var supportTopAPIFlags = []cli.Flag{

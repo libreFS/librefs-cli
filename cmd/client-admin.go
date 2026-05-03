@@ -27,9 +27,9 @@ import (
 
 	"github.com/libreFS/librefs-cli/pkg/httptracer"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/librefs-go/v7/pkg/credentials"
+	"github.com/libreFS/madmin-go/v3"
 	"github.com/mattn/go-ieproxy"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7/pkg/credentials"
 )
 
 // NewAdminFactory encloses New function with client cache.

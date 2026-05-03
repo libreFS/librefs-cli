@@ -24,7 +24,7 @@ import (
 	"time"
 
 	"github.com/libreFS/librefs-cli/pkg/probe"
-	"github.com/minio/pkg/v3/quick"
+	"github.com/libreFS/pkg/v3/quick"
 )
 
 // shareEntryV1 - container for each download/upload entries.

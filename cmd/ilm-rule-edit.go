@@ -22,11 +22,11 @@ import (
 
 	"github.com/libreFS/librefs-cli/cmd/ilm"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	minio "github.com/libreFS/librefs-go/v7"
+	"github.com/libreFS/librefs-go/v7/pkg/lifecycle"
+	"github.com/libreFS/pkg/v3/console"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
-	minio "github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/lifecycle"
-	"github.com/minio/pkg/v3/console"
 )
 
 var ilmEditCmd = cli.Command{

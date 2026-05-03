@@ -22,9 +22,9 @@ import (
 
 	"github.com/libreFS/librefs-cli/cmd/ilm"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/pkg/v3/console"
 	"github.com/minio/cli"
 	json "github.com/minio/colorjson"
-	"github.com/minio/pkg/v3/console"
 )
 
 var ilmRemoveFlags = []cli.Flag{

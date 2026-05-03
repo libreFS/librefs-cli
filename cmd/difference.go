@@ -26,7 +26,7 @@ import (
 	// golang does not support flat keys for path matching, find does
 
 	"github.com/libreFS/librefs-cli/pkg/probe"
-	"github.com/minio/minio-go/v7"
+	minio "github.com/libreFS/librefs-go/v7"
 	"golang.org/x/text/unicode/norm"
 )
 

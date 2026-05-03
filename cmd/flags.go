@@ -24,8 +24,8 @@ import (
 	"time"
 
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	minio "github.com/libreFS/librefs-go/v7"
 	"github.com/minio/cli"
-	"github.com/minio/minio-go/v7"
 )
 
 const envPrefix = "MC_"

@@ -22,7 +22,7 @@ import (
 	"path/filepath"
 
 	"github.com/libreFS/librefs-cli/pkg/probe"
-	"github.com/minio/pkg/v3/certs"
+	"github.com/libreFS/pkg/v3/certs"
 )
 
 // getCertsDir - return the full path of certs dir

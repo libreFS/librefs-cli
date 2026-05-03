@@ -33,9 +33,9 @@ import (
 
 	"github.com/charmbracelet/lipgloss"
 	"github.com/dustin/go-humanize"
+	"github.com/libreFS/madmin-go/v3"
+	"github.com/libreFS/pkg/v3/console"
 	"github.com/minio/cli"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/pkg/v3/console"
 	"github.com/muesli/termenv"
 	"golang.org/x/net/http/httpguts"
 )

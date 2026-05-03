@@ -34,13 +34,13 @@ import (
 	"github.com/libreFS/librefs-cli/pkg/httptracer"
 	"github.com/libreFS/librefs-cli/pkg/limiter"
 	"github.com/libreFS/librefs-cli/pkg/probe"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/cors"
-	"github.com/minio/minio-go/v7/pkg/credentials"
-	"github.com/minio/minio-go/v7/pkg/encrypt"
-	"github.com/minio/minio-go/v7/pkg/lifecycle"
-	"github.com/minio/minio-go/v7/pkg/replication"
-	"github.com/minio/pkg/v3/env"
+	minio "github.com/libreFS/librefs-go/v7"
+	"github.com/libreFS/librefs-go/v7/pkg/cors"
+	"github.com/libreFS/librefs-go/v7/pkg/credentials"
+	"github.com/libreFS/librefs-go/v7/pkg/encrypt"
+	"github.com/libreFS/librefs-go/v7/pkg/lifecycle"
+	"github.com/libreFS/librefs-go/v7/pkg/replication"
+	"github.com/libreFS/pkg/v3/env"
 )
 
 // DirOpt - list directory option.

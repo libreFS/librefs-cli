@@ -21,7 +21,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/minio/minio-go/v7/pkg/lifecycle"
+	"github.com/libreFS/librefs-go/v7/pkg/lifecycle"
 )
 
 // helpers

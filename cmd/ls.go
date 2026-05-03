@@ -27,8 +27,8 @@ import (
 
 	"github.com/dustin/go-humanize"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	"github.com/libreFS/pkg/v3/console"
 	json "github.com/minio/colorjson"
-	"github.com/minio/pkg/v3/console"
 )
 
 // printDate - human friendly formatted date.

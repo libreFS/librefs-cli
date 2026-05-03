@@ -29,13 +29,13 @@ import (
 
 	"github.com/dustin/go-humanize"
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	minio "github.com/libreFS/librefs-go/v7"
+	"github.com/libreFS/librefs-go/v7/pkg/lifecycle"
+	"github.com/libreFS/librefs-go/v7/pkg/notification"
+	"github.com/libreFS/librefs-go/v7/pkg/replication"
+	"github.com/libreFS/madmin-go/v3"
+	"github.com/libreFS/pkg/v3/console"
 	json "github.com/minio/colorjson"
-	"github.com/minio/madmin-go/v3"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/lifecycle"
-	"github.com/minio/minio-go/v7/pkg/notification"
-	"github.com/minio/minio-go/v7/pkg/replication"
-	"github.com/minio/pkg/v3/console"
 )
 
 // contentMessage container for content message structure.
@@ -120,26 +120,26 @@ func (stat statMessage) String() (msg string) {
 		var found bool
 		if enabled, ok := stat.Metadata["X-Amz-Server-Side-Encryption-Bucket-Key-Enabled"]; ok {
 			if enabled == "true" {
-				msgBuilder.WriteString(fmt.Sprintf("%-10s: SSE-%s\n", "Encryption", "KMS"))
+				fmt.Fprintf(&msgBuilder, "%-10s: SSE-%s\n", "Encryption", "KMS")
 			}
 			// we still need to treat this as 'true' because X-Amz-Server-Side-Encryption-Bucket-Key-Enabled
 			// can be set to 'false' by the server to indicate there is no SSE enabled on the object
 			// we shouldn't be printing `unknown` in that scenario.
 			found = true
 		} else if keyID, ok := stat.Metadata["X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id"]; ok {
-			msgBuilder.WriteString(fmt.Sprintf("%-10s: SSE-%s (%s)\n", "Encryption", "KMS", keyID))
+			fmt.Fprintf(&msgBuilder, "%-10s: SSE-%s (%s)\n", "Encryption", "KMS", keyID)
 			found = true
 		} else if _, ok := stat.Metadata["X-Amz-Server-Side-Encryption-Customer-Key-Md5"]; ok {
-			msgBuilder.WriteString(fmt.Sprintf("%-10s: SSE-%s\n", "Encryption", "C"))
+			fmt.Fprintf(&msgBuilder, "%-10s: SSE-%s\n", "Encryption", "C")
 			found = true
 		} else if algo, ok := stat.Metadata["X-Amz-Server-Side-Encryption"]; ok && algo == "AES256" {
-			msgBuilder.WriteString(fmt.Sprintf("%-10s: SSE-%s\n", "Encryption", "S3"))
+			fmt.Fprintf(&msgBuilder, "%-10s: SSE-%s\n", "Encryption", "S3")
 			found = true
 		}
 		if !found {
 			// encryption headers are present but not something we recognize, check `lc stat --debug`
 			// to obtain more information and understand if we are missing something.
-			msgBuilder.WriteString(fmt.Sprintf("%-10s: SSE-%s\n", "Encryption", "Unknown"))
+			fmt.Fprintf(&msgBuilder, "%-10s: SSE-%s\n", "Encryption", "Unknown")
 		}
 	}
 
@@ -154,7 +154,7 @@ func (stat statMessage) String() (msg string) {
 	}
 
 	if stat.ReplicationStatus != "" {
-		msgBuilder.WriteString(fmt.Sprintf("%-10s: %s ", "Replication Status", stat.ReplicationStatus))
+		fmt.Fprintf(&msgBuilder, "%-10s: %s ", "Replication Status", stat.ReplicationStatus)
 	}
 
 	msgBuilder.WriteString("\n")
@@ -462,7 +462,7 @@ func (v bucketInfoMessage) String() string {
 	if !v.Date.IsZero() && !v.Date.Equal(timeSentinel) {
 		b.WriteString(fmt.Sprintf("%-10s: %s ", "Date", v.Date.Format(printDate)) + "\n")
 	}
-	b.WriteString(fmt.Sprintf("%-10s: %-6s \n", "Size", "N/A"))
+	fmt.Fprintf(&b, "%-10s: %-6s \n", "Size", "N/A")
 
 	fType := func() string {
 		if v.Prefix {
@@ -473,7 +473,7 @@ func (v bucketInfoMessage) String() string {
 		}
 		return "file"
 	}()
-	b.WriteString(fmt.Sprintf("%-10s: %s \n", "Type", fType))
+	fmt.Fprintf(&b, "%-10s: %s \n", "Type", fType)
 	fmt.Fprintf(&b, "\n")
 
 	if !v.Prefix {

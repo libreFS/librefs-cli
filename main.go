@@ -21,7 +21,7 @@ import (
 	"os"
 
 	lc "github.com/libreFS/librefs-cli/cmd"
-	"github.com/minio/pkg/v3/console"
+	"github.com/libreFS/pkg/v3/console"
 )
 
 func main() {

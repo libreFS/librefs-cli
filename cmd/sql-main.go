@@ -32,9 +32,9 @@ import (
 	"time"
 
 	"github.com/libreFS/librefs-cli/pkg/probe"
+	minio "github.com/libreFS/librefs-go/v7"
+	"github.com/libreFS/pkg/v3/mimedb"
 	"github.com/minio/cli"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/pkg/v3/mimedb"
 )
 
 var sqlFlags = []cli.Flag{
@@ -190,7 +190,7 @@ func fmtString(validAbbr map[string]string, validKeys []string) string {
 	var sb strings.Builder
 	i := 0
 	for k, v := range validAbbr {
-		sb.WriteString(fmt.Sprintf("%s(%s) ", v, k))
+		fmt.Fprintf(&sb, "%s(%s) ", v, k)
 		i++
 		if i != len(validAbbr) {
 			sb.WriteString(",")
@@ -198,7 +198,7 @@ func fmtString(validAbbr map[string]string, validKeys []string) string {
 	}
 	if len(sb.String()) == 0 {
 		for _, k := range validKeys {
-			sb.WriteString(fmt.Sprintf("%s ", k))
+			fmt.Fprintf(&sb, "%s ", k)
 		}
 	}
 	return sb.String()
